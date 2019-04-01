@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public abstract class Order {
+public  class PickupRequest {
 
 	@Id
 	@GeneratedValue
@@ -16,14 +16,17 @@ public abstract class Order {
 	private String locationEnd;
 	private LocalDateTime time;
 	private String description;
+	private Status status;
+	
 
-	public Order() {}
+	public PickupRequest() {}
 
-	public Order(String locationStart, String locationEnd, LocalDateTime time, String description) {
+	public PickupRequest(String locationStart, String locationEnd, LocalDateTime time, String description) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
 		this.time = time;
 		this.description = description;
+		this.status = status.DO;
 	}
 
 	public Long getId() {
@@ -45,10 +48,23 @@ public abstract class Order {
 	public String getDescription() {
 		return description;
 	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	public void updateStatus() {
+		if(this.status.equals(Status.DO)) {
+			this.status = Status.DOING;
+		}
+		else if(this.status.equals(Status.DOING)) {
+			this.status = Status.DONE;
+		}
+		
+	}
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", locationStart=" + locationStart + ", locationEnd=" + locationEnd + ", time="
-				+ time + ", description=" + description + "]";
+		return "PickupRequest [id=" + id + ", locationStart=" + locationStart + ", locationEnd=" + locationEnd
+				+ ", time=" + time + ", description=" + description + ", status=" + status + "]";
 	}
 }
