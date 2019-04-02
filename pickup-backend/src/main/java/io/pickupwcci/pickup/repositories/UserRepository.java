@@ -1,4 +1,4 @@
-package io.pickupwcci.pickup.repositories;
+  package io.pickupwcci.pickup.repositories;
 
 public class UserRepository {
 
