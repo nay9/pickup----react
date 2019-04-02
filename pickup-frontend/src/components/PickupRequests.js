@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import PickupRequest from './PickupRequest';
 
 
 
@@ -12,7 +13,9 @@ class PickupRequests extends Component {
       <div>
         {this.props.pickupRequests.map((pickupRequest) => (
           <div>
-          <h2>{ pickupRequest.id }</h2> 
+          <PickupRequest
+            key={pickupRequest.id}
+            pickupRequest={pickupRequest}/>
           </div>
           ))}
       </div>
@@ -21,6 +24,6 @@ class PickupRequests extends Component {
 }
 
 PickupRequests.propTypes = {
- pickupRequests: PropTypes.string.isRequired,
+ pickupRequests: PropTypes.array.isRequired,
 }
 export default PickupRequests;
