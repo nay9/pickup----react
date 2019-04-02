@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public  class PickupRequest {
@@ -17,6 +20,9 @@ public  class PickupRequest {
 	private LocalDateTime time;
 	private String description;
 	private Status status;
+	@ManyToOne
+	@JsonIgnore
+	private Driver driver;
 	
 
 	public PickupRequest() {}
@@ -27,6 +33,11 @@ public  class PickupRequest {
 		this.time = time;
 		this.description = description;
 		this.status = status.DO;
+		this.driver = driver;
+	}
+
+	public Driver getDriver() {
+		return driver;
 	}
 
 	public Long getId() {
