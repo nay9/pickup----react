@@ -5,47 +5,10 @@ import AddPickupRequest from './components/AddPickupRequest';
 
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
-    {this.state = {pickupRequests:[]}}
+    { this.state = { pickupRequests: [] } }
   }
-
-  // state = {
-  //   pickupRequests: [
-  //     {
-  //       id: 1,
-  //       locationStart: 'schoo1',
-  //       locationEnd: 'renes M',
-  //       time: 'now',
-  //       description: 'lorem'
-  //     },
-  //     {
-  //       id: 2,
-  //       locationStart: 'schoo2',
-  //       locationEnd: 'renes M',
-  //       time: 'now',
-  //       description: 'lorem'
-  //     },
-  //     {
-  //       id: 3,
-  //       locationStart: 'schoo3',
-  //       locationEnd: 'renes M',
-  //       time: 'now',
-  //       description: 'lorem'
-  //     }
-  //   ]
-
-  // }
-
-  // addPickupRequest = (id) => {
-  //   fetch.post('/add')
-  //   locationStart,
-  //     locationEnd,
-  //     time,
-  //     description
-
-  // }
-  
   getPickupRequests = () => {
     fetch("/pickuprequests")
       .then(res => res.json())
@@ -53,16 +16,31 @@ class App extends Component {
         this.setState({ pickupRequests: data });
         console.log(this.state);
       })
-      .catch(err =>console.log(err));
+      .catch(err => console.log(err));
   }
-componentDidMount() {this.getPickupRequests()};
+  componentDidMount() { this.getPickupRequests() };
+
+  addPickupRequest = (state) => {
+    fetch(`/pickuprequests/add`, {
+      method: "POST",
+      body: JSON.stringify(state)
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ pickupRequests: data });
+        console.log(this.state);
+      }
+      )
+  }
+
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <h1>App.js</h1>
-       
+
         <PickupRequests
-          pickupRequests={this.state.pickupRequests}  />
+          pickupRequests={this.state.pickupRequests}
+          addPickupRequest={this.addPickupRequest} />
       </div>
     );
   }
