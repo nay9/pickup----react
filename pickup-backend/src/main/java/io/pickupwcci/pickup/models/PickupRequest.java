@@ -1,5 +1,6 @@
 package io.pickupwcci.pickup.models;
 
+import java.util.Date;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -17,7 +18,9 @@ public  class PickupRequest {
 	private Long id;
   	private String locationStart;
 	private String locationEnd;
-	private LocalDateTime time;
+	private String time;
+
+	
 	private String description;
 	private Status status;
 	@ManyToOne
@@ -27,7 +30,7 @@ public  class PickupRequest {
 
 	public PickupRequest() {}
 
-	public PickupRequest(String locationStart, String locationEnd, LocalDateTime time, String description) {
+	public PickupRequest(String locationStart, String locationEnd, String time, String description) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
 		this.time = time;
@@ -52,13 +55,16 @@ public  class PickupRequest {
 		return locationEnd;
 	}
 
-	public LocalDateTime getTime() {
+	public String getTime() {
 		return time;
 	}
 
 	public String getDescription() {
 		return description;
 	}
+//	public String getDate() {
+//		return DateTime.from(instant)
+//	}
 	
 	public Status getStatus() {
 		return status;
