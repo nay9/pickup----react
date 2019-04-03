@@ -25,9 +25,14 @@ public class Initializer  implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", LocalDateTime.now(),"Couch"));
+		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", "5:00","Couch"));
 		requestPickup.updateStatus();
 		orderRepo.save(requestPickup);
+		
+
+		PickupRequest requestPickup2 = orderRepo.save(new PickupRequest("Lowe's", "School", "now","Lumber"));
+		requestPickup2.updateStatus();
+		orderRepo.save(requestPickup2);
 	}
 
 	

@@ -2,9 +2,11 @@ package modeltest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.Date;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +18,7 @@ public class PickupRequestTest {
 	PickupRequest orderTest;
 	@Before
 	public void setup() {
-		orderTest = new PickupRequest("locationStart", "locationEnd", LocalDateTime.now(), "description");
+		orderTest = new PickupRequest("locationStart", "locationEnd", "time", "description");
 	}
 
 	@Test
@@ -30,5 +32,7 @@ public class PickupRequestTest {
 		assertEquals(Status.DONE, orderTest.getStatus());
 		
 	}
+	
+	
 
 }
