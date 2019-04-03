@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+
 
 class PickupRequest extends Component {
   render() {
-    const {locationStart, locationEnd, time, description} = this.props.pickupRequest;
+    const {id, locationStart, locationEnd, time, description} = this.props.pickupRequest;
 
     return (
     
     <React.Fragment>
+        <p>{ id }</p>
         <p>{ locationStart }</p>
         <p>{ locationEnd }</p>
         <p>{ time }</p>
@@ -17,8 +18,5 @@ class PickupRequest extends Component {
   }
 }
 
-PickupRequest.propTypes = {
-    pickupRequest: PropTypes.object.isRequired,
-   }
 
 export default PickupRequest;
