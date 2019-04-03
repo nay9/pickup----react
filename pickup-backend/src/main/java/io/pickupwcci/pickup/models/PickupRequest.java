@@ -15,7 +15,7 @@ public  class PickupRequest {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String locationStart;
+  	private String locationStart;
 	private String locationEnd;
 	private LocalDateTime time;
 	private String description;
