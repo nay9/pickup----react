@@ -18,7 +18,7 @@ import io.pickupwcci.pickup.models.PickupRequest;
 import io.pickupwcci.pickup.repositories.PickupRequestRepository;
 
 @RestController
-@RequestMapping("/pickuprequest")
+@RequestMapping("/pickuprequests")
 public class PickupRequestController {
 
 	@Resource
@@ -40,8 +40,9 @@ public class PickupRequestController {
 		JSONObject newPickupRequest = new JSONObject(body);
 		String locationStart = newPickupRequest.getString("locationStart");
 		String locationEnd = newPickupRequest.getString("locationEnd");
+		String time = newPickupRequest.getString("time");
 		String description = newPickupRequest.getString("description");
-		pickupRepo.save(new PickupRequest(locationStart, locationEnd, LocalDateTime.now(), description));
+		pickupRepo.save(new PickupRequest(locationStart, locationEnd, time, description));
 		return (Collection<PickupRequest>) pickupRepo.findAll();
 	}
 }
