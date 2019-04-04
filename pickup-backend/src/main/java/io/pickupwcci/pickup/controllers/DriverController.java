@@ -33,7 +33,8 @@ public class DriverController {
 	}
 
 	@PostMapping("/driver/add/{id}")
-	public Collection<PickupRequest> addDriver(@RequestBody String body) throws JSONException {
+	public Collection<PickupRequest> addDriver(@PathVariable Long id,@RequestBody String body) throws JSONException {
+		Driver addDriver = driverRepo.findById(id).get();
 		JSONObject json = new JSONObject(body);
 		String driverName = json.getString("driverName");
 		driverRepo.save(new Driver(driverName));
