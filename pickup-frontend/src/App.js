@@ -1,46 +1,49 @@
-import React, { Component } from 'react';
-import './App.css';
-import PickupRequests from './components/PickupRequests';
-import AddPickupRequest from './components/AddPickupRequest';
-
+import React, { Component } from "react";
+import "./App.css";
+import PickupRequests from "./components/PickupRequests";
+import AddPickupRequest from "./components/AddPickupRequest";
+import Header from "./components/layout/Header";
 
 class App extends Component {
   constructor() {
     super();
-    { this.state = { pickupRequests: [] } }
-  }
-  getPickupRequests = () => {
-    fetch("/pickuprequests")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ pickupRequests: data });
-        console.log(this.state);
-      })
-      .catch(err => console.log(err));
-  }
-  componentDidMount() { this.getPickupRequests() };
+    {
+      this.state = { 
+        
+        pickupRequests: [],
+        currentLocation: 'addPickupRequest'
 
-  addPickupRequest = (state) => {
-    fetch(`/pickuprequests/add`, {
-      method: "POST",
-      body: JSON.stringify(state)
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ pickupRequests: data });
-        console.log(this.state);
-      }
-      )
+      };
+    
+    
+    
+    }
+  }
+
+
+
+
+  // getPickupRequests = () => {
+  //   fetch("/pickuprequests")
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({ pickupRequests: data });
+  //       console.log(this.state);
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+  componentDidMount() {
+    this.getPickupRequests();
   }
 
   render() {
     return (
-      <div className="App" >
-        <h1>App.js</h1>
-
-        <PickupRequests
-          pickupRequests={this.state.pickupRequests}
-          addPickupRequest={this.addPickupRequest} />
+      <div className="App">
+        <Header updateCurrentLocation = {this.updateCurrentLocation}/>
+        <div className="container">
+          {this.state.currentLocation === 'pickupRequests' && <PickupRequests pickupRequests={this.state.pickupRequests}/>}
+          {this.state.currentLocation === 'addPickupRequests' && <AddPickupRequest addPickupRequests={this.state.addPickupRequests}/>}
+        </div>
       </div>
     );
   }

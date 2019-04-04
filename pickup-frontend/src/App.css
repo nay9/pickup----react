@@ -1,0 +1,74 @@
+/*----------------
+Global
+----------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*----------------
+Header
+----------------*/
+
+.site-header{
+    background-color: #234a5b;
+    color: white;
+    display: flex;
+    height: 4rem;
+    margin-bottom: 3rem;
+    padding: 0 0.6rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-list{
+    display: flex;
+    list-style: none;
+}
+
+.nav-list-item{
+    margin: 0.7rem;
+}
+.nav-list-item:last-child{
+    margin-right: 0;
+}
+
+/*----------------
+Form
+----------------*/
+
+.order-form{
+    width: 100%;
+}
+
+.form-item, .btn{ 
+    height: 4rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+}
+
+.btn{
+    font-size: 1.5rem;
+    color: #EEE;
+    border: 0;
+    background: rgb(51,128,129);
+    background: linear-gradient(0deg, rgba(51,128,129,1) 0%, rgba(62,172,173,1) 100%);
+   
+}
+
+/*----------------
+Body
+----------------*/ 
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100%;   
+}
