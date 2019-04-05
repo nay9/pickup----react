@@ -29,6 +29,7 @@ class OrderForm extends Component {
   };
 
   render() {
+    // destructure this.state.
     return (
       <div className="card">
         <form className="order-form" onSubmit={this.onSubmit}>
@@ -68,7 +69,6 @@ class OrderForm extends Component {
             className="btn form-btn"
             type="submit"
             value="Submit"
-            className="btn"
           />
         </form>
       </div>
