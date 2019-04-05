@@ -24,7 +24,11 @@ public class Initializer  implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", "5:00","Couch"));
+
+		Driver driver = driverRepo.save(new Driver("Jimmy"));
+		driverRepo.save(driver);
+		
+		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", "5:00","Couch", driver));
 		requestPickup.updateStatus();
 		orderRepo.save(requestPickup);
 		
@@ -33,8 +37,7 @@ public class Initializer  implements CommandLineRunner{
 		requestPickup2.updateStatus();
 		orderRepo.save(requestPickup2);
 		
-		Driver driver = driverRepo.save(new Driver("Jimmy", null));
-		driverRepo.save(driver);
+		
 	}
 
 	

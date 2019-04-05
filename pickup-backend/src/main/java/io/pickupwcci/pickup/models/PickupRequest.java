@@ -38,6 +38,15 @@ public  class PickupRequest {
 		this.status = status.DO;
 		this.driver = driver;
 	}
+	public PickupRequest(String locationStart, String locationEnd, String time, String description, Driver driver ) {
+		this.locationStart = locationStart;
+		this.locationEnd = locationEnd;
+		this.time = time;
+		this.description = description;
+		this.status = status.DO;
+		this.driver = driver;
+	}
+
 
 	public Driver getDriver() {
 		return driver;
