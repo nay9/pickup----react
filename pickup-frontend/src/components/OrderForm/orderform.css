@@ -1,0 +1,19 @@
+.order-form{
+    width: 100%;
+}
+
+.form-item, .btn{ 
+    height: 4rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+}
+
+.btn{
+    font-size: 1.5rem;
+    color: #EEE;
+    border: 0;
+    background: rgb(51,128,129);
+    background: linear-gradient(0deg, rgba(51,128,129,1) 0%, rgba(62,172,173,1) 100%);
+   
+}
