@@ -6,4 +6,6 @@ import io.pickupwcci.pickup.models.Driver;
 
 public interface DriverRepository extends CrudRepository<Driver, Long>{
 
+	Driver findByDriverName(String driverName);
+
 }

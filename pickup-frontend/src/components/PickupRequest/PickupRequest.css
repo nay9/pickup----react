@@ -1,0 +1,15 @@
+.box {
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.box:hover{
+    box-shadow: 5px;
+    background-color: grey;
+}
+
+.hide {
+    display:none;
+}
