@@ -1,0 +1,23 @@
+/*----------------
+Global
+----------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/*----------------
+Body
+----------------*/ 
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100%;   
+}
