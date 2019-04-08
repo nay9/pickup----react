@@ -18,6 +18,9 @@ public class Driver {
 	@OneToMany(mappedBy = "driver")
 	private Collection<PickupRequest> pickupRequests;
 	
+	@OneToMany(mappedBy="driver")
+	private Collection<Rating> ratings;
+	
 	public Driver() {}
 
 	public Driver(String driverName) {
@@ -41,6 +44,11 @@ public class Driver {
 	
 	@Override	public String toString() {
 		return "Driver [id=" + id + ", driverName=" + driverName + ", pickupRequests=" + pickupRequests + "]";
+	}
+
+	public void addReview(Review reviewToAdd) {
+		
+		
 	}
 	
 	
