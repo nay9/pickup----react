@@ -64,18 +64,18 @@ class App extends Component {
 
         <div className="container">
 
-          //View all orders
+          
           {this.state.currentLocation === "pickupRequests" && (
             <PickupRequests 
               pickupRequests={this.state.pickupRequests} 
               acceptOrder={this.acceptOrder}
             />
           )}
-          //view order form
+          
           {this.state.currentLocation === "orderForm" && (
             <OrderForm orderForm={this.orderForm} />
           )}
-            //view home
+            
            {this.state.currentLocation === "home" && (
             <div className="">
               <Home /> 

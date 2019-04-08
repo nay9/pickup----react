@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PickupRequest from './PickupRequest';
+import PickupRequest from './OpenOrders';
 
 
 
@@ -12,16 +12,18 @@ class PickupRequests extends Component {
 
     return (
       <div>
-        {this.props.pickupRequests.map((pickupRequest) => (
-          <div>
-            <PickupRequest
-              key={pickupRequest.id}
-              pickupRequest={ pickupRequest }
-              acceptOrder = {this.props.acceptOrder}
-            
+        {this.props.pickupRequests.map((pickupRequest) => 
+          (
+            <div>
+              <PickupRequest
+                key={pickupRequest.id}
+                pickupRequest={ pickupRequest }
+                acceptOrder = {this.props.acceptOrder}
               />
-          </div>
-        ))}
+            </div>
+
+          ))
+        }
       </div>
     )
   }
