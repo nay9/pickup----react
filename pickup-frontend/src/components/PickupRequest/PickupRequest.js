@@ -5,16 +5,10 @@ class PickupRequest extends Component {
 
 
 
-  onSubmit = e => {
-    e.preventDefault();
-    this.props.acceptOrder(
-      this.props.pickupRequest.id
-      );
-      console.log(this.props.pickupRequest.id)
-  }
+
 
   render() {
-    const {id, locationStart, locationEnd, time, description} = this.props.pickupRequest;
+    const { id, locationStart, locationEnd, time, description } = this.props.pickupRequest;
 
     return (
     
@@ -25,7 +19,7 @@ class PickupRequest extends Component {
           <p className="box-item">Destination: { locationEnd }</p>
           <p className="box-item">Time of Delivery: { time }</p>
           <p className="">Order Confirmation: { id }</p>
-          <button className="btn" onSubmit={this.onSubmit}>Accept Order</button>
+          <button className="btn" onClick={()=>this.props.acceptOrder(id) }>Accept Order</button>
       </form>
     </div> 
 

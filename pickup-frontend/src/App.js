@@ -45,10 +45,10 @@ class App extends Component {
   };
 
   acceptOrder = (id) => {
-    let order = { id };
-    fetch(`/driver/accept`, {
+    let orderId = { id };
+    fetch(`/driver/accept/`, {
       method: "POST",
-      body: JSON.stringify(order)
+      body: JSON.stringify(orderId)
     })
       .then(res => res.json())
       .then(data => {
@@ -59,14 +59,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Header updateCurrentLocation={this.updateCurrentLocation} />
+
         <div className="container">
+
+          //View all orders
           {this.state.currentLocation === "pickupRequests" && (
-            <PickupRequests pickupRequests={this.state.pickupRequests} />
+            <PickupRequests 
+              pickupRequests={this.state.pickupRequests} 
+              acceptOrder={this.acceptOrder}
+            />
           )}
+          //view order form
           {this.state.currentLocation === "orderForm" && (
             <OrderForm orderForm={this.orderForm} />
           )}
+            //view home
            {this.state.currentLocation === "home" && (
             <div className="">
               <Home /> 
