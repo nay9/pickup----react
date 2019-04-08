@@ -1,5 +1,6 @@
 package io.pickupwcci.pickup.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -19,9 +20,10 @@ public class Driver {
 	
 	public Driver() {}
 
-	public Driver(String driverName, Collection<PickupRequest> pickupRequests) {
+	public Driver(String driverName) {
 		this.driverName = driverName;
-		this.pickupRequests = pickupRequests;
+		this.pickupRequests = new ArrayList<PickupRequest>();
+		
 	}
 
 	public Long getId() {
@@ -35,9 +37,9 @@ public class Driver {
 	public Collection<PickupRequest> getPickupRequests() {
 		return pickupRequests;
 	}
-
-	@Override
-	public String toString() {
+	
+	
+	@Override	public String toString() {
 		return "Driver [id=" + id + ", driverName=" + driverName + ", pickupRequests=" + pickupRequests + "]";
 	}
 	

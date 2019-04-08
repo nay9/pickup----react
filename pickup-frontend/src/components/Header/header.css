@@ -1,0 +1,11 @@
+.site-header{
+    background-color: #234a5b;
+    color: white;
+    display: flex;
+    height: 4rem;
+    margin-bottom: 3rem;
+    padding: 0 0.6rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
