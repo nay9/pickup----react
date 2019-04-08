@@ -7,6 +7,7 @@ export default ({ updateCurrentLocation }) => (
         <ul className="nav-list">
             <li className="nav-list-item"><a onClick={() => updateCurrentLocation('orderForm')}>Order</a></li>
             <li className="nav-list-item"><a onClick={() => updateCurrentLocation('pickupRequests')}>All Orders</a></li>
+            <li className="nav-list-item"><a onClick={() => updateCurrentLocation('home')}>Home</a></li>
         </ul>
     </nav>
 )
