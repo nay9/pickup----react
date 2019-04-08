@@ -32,12 +32,16 @@ public class DriverController {
 		return driverRepo.findById(id).get();
 	}
 
-	@PostMapping("/driver/add/{id}")
-	public Collection<PickupRequest> addToDriver(@PathVariable Long id,@RequestBody String body) throws JSONException {
-		Driver addToDriver = driverRepo.findById(id).get();
+	@PostMapping("/accept/")
+	public Collection<PickupRequest> addToDriver(@RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
-		String driverName = json.getString("driverName");
-		driverRepo.save(new Driver(driverName));
+		Long pickupRequestID = (long) json.getInt("id");
+		PickupRequest pickupRequest = pickupRequestRepo.findById(pickupRequestID).get();
+		Driver driver = driverRepo.findByDriverName("Jimmy");
+		pickupRequest.setDriver(driver);
+		pickupRequest.updateStatus();
+		pickupRequestRepo.save(pickupRequest);
+		// fix return later -- figure out what want to actually render
 		return (Collection<PickupRequest>) pickupRequestRepo.findAll();
 	}
 

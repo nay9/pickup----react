@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import PickupRequests from "./components/PickupRequests";
+import PickupRequests from "./components/PickupRequest/PickupRequests";
 import OrderForm from "./components/OrderForm/OrderForm";
 import api from "./utils/api";
 import Header from "./components/Header/Header";
-import { type } from "os";
+import Home from "./components/Home/Home";
 
 class App extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class App extends Component {
     {
       this.state = {
         pickupRequests: [],
-        currentLocation: "orderForm"
+        currentLocation: "home"
       };
     }
   }
@@ -44,16 +44,43 @@ class App extends Component {
       });
   };
 
+  acceptOrder = (id) => {
+    let orderId = { id };
+    fetch(`/driver/accept/`, {
+      method: "POST",
+      body: JSON.stringify(orderId)
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ pickupRequests: data });
+      });
+  };
+
   render() {
     return (
       <div className="App">
+
         <Header updateCurrentLocation={this.updateCurrentLocation} />
+
         <div className="container">
+
+          //View all orders
           {this.state.currentLocation === "pickupRequests" && (
-            <PickupRequests pickupRequests={this.state.pickupRequests} />
+            <PickupRequests 
+              pickupRequests={this.state.pickupRequests} 
+              acceptOrder={this.acceptOrder}
+            />
           )}
+          //view order form
           {this.state.currentLocation === "orderForm" && (
             <OrderForm orderForm={this.orderForm} />
+          )}
+            //view home
+           {this.state.currentLocation === "home" && (
+            <div className="">
+              <Home /> 
+              <OrderForm orderForm={this.orderForm} />
+            </div>
           )}
         </div>
       </div>

@@ -4,6 +4,7 @@ import PickupRequest from './PickupRequest';
 
 
 
+
 class PickupRequests extends Component {
 
 
@@ -15,7 +16,10 @@ class PickupRequests extends Component {
           <div>
             <PickupRequest
               key={pickupRequest.id}
-              pickupRequest={pickupRequest} />
+              pickupRequest={ pickupRequest }
+              acceptOrder = {this.props.acceptOrder}
+            
+              />
           </div>
         ))}
       </div>

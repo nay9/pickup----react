@@ -88,9 +88,14 @@ public  class PickupRequest {
 		
 	}
 
+	public void setDriver(Driver driver) {
+		this.driver = driver;
+	}
+
 	@Override
 	public String toString() {
 		return "PickupRequest [id=" + id + ", locationStart=" + locationStart + ", locationEnd=" + locationEnd
 				+ ", time=" + time + ", description=" + description + ", status=" + status + "]";
 	}
+
 }
