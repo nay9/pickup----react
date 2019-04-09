@@ -5,8 +5,12 @@ import OrderForm from "./components/OrderForm/OrderForm";
 import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+
 import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders"
 import AllCompletedOrders from './components/PickupRequest/AllCompletedOrders'
+
+
+import MapContainer from "./components/MapContainer"
 
 
 class App extends Component {
@@ -117,6 +121,7 @@ class App extends Component {
             </div>
           )}
 
+
             {this.state.currentLocation === "user" && (
             <div className="">
               <AllAcceptedOrders allAcceptedOrders={this.state.allAcceptedOrders} />
@@ -134,6 +139,13 @@ class App extends Component {
 
             </div>
           )}    
+
+        <div className="mapView">
+        <section className="map-container">
+            <MapContainer />
+        </section>
+    </div>
+
         </div>
       </div>
     );
