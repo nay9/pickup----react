@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import './PickupRequest.css'
 
-class PickupRequest extends Component {
+class OpenOrder extends Component {
 
 
 
 
 
   render() {
-    const { id, locationStart, locationEnd, time, description, status } = this.props.pickupRequest;
+    const { id, locationStart, locationEnd, time, description, status } = this.props.openOrder;
 
     if (status === 'DO'){
     return (
@@ -20,7 +20,7 @@ class PickupRequest extends Component {
           <p className="box-item">Time of Delivery: { time }</p>
           <p className="box-item">Status: { status }</p>
           <p className="">Order Confirmation: { id }</p>
-          <button className="btn" onClick={()=>this.props.acceptOrder(id) }>Accept Order</button>
+          <button className="btn" onClick={()=>this.props.assignOrder(id) }>Accept Order</button>
       </form>
     </div> )} 
 
@@ -28,6 +28,5 @@ class PickupRequest extends Component {
   }
 }
 
-
-export default PickupRequest;
+export default OpenOrder;
 
