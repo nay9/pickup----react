@@ -6,6 +6,8 @@ import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders"
+import AllCompletedOrders from './components/PickupRequest/AllCompletedOrders'
+
 
 class App extends Component {
   constructor() {
@@ -14,6 +16,7 @@ class App extends Component {
       this.state = {
         allOpenOrders: [],
         allAcceptedOrders: [],
+        allCompletedOrders: [],
         currentLocation: "home"
       };
     }
@@ -73,6 +76,20 @@ class App extends Component {
       this.setState({ currentLocation: AllOpenOrders });
     };
 
+    markComplete = (id) => {
+      let orderId = { id };
+      fetch(`/driver/accept/`, {
+        method: "POST",
+        body: JSON.stringify(orderId)
+      })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({ allAcceptedOrders: data });
+          this.setState({ allCompletedOrders: data });
+        });
+        this.setState({ currentLocation: AllOpenOrders});
+      };
+
   render() {
     return (
       <div className="App">
@@ -109,8 +126,12 @@ class App extends Component {
 
            {this.state.currentLocation === "driver" && (
             <div className="">
-              <AllAcceptedOrders allAcceptedOrders={this.state.allAcceptedOrders} />
+              <AllAcceptedOrders 
+                allAcceptedOrders={this.state.allAcceptedOrders} 
+                markComplete={this.markComplete}/>
+              <AllCompletedOrders allCompletedOrders={this.state.allCompletedOrders} />
               <OrderForm orderForm={this.orderForm} />
+
             </div>
           )}    
         </div>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-export class AcceptedOrder extends Component {
+class CompletedOrder extends Component {
  
  
   render() {
-    const { id, locationStart, locationEnd, time, description, status } = this.props.acceptedOrder;
+    const { id, locationStart, locationEnd, time, description, status } = this.props.completedOrder;
 
-    if (status === 'DOING'){
+    if (status === 'DONE'){
     return (
         <div className="box">
                 <h2 className="box-item">{ description }</h2>
@@ -16,11 +16,11 @@ export class AcceptedOrder extends Component {
                 <p className="box-item">Time of Delivery: { time }</p>
                 <p className="box-item">Status: { status }</p>
                 <p className="">Order Confirmation: { id }</p>
-                <button className="btn" onClick={()=>this.props.markComplete(id) }>Complete</button>
+                
         </div> )} 
 
     else return ("")
   }
 }
 
-export default AcceptedOrder
+export default CompletedOrder

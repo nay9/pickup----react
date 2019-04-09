@@ -11,6 +11,7 @@ export class AllAcceptedOrders extends Component {
                 <AcceptedOrder
                   key={acceptedOrder.id}
                   acceptedOrder={ acceptedOrder }
+                  markComplete = {this.props.markComplete}
                 />
               </div>
   
