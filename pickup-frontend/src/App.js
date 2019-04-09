@@ -1,25 +1,39 @@
 import React, { Component } from "react";
 import "./App.css";
-import PickupRequests from "./components/PickupRequest/PickupRequests";
+import AllOpenOrders from "./components/PickupRequest/AllOpenOrders";
 import OrderForm from "./components/OrderForm/OrderForm";
 import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders"
 
 class App extends Component {
   constructor() {
     super();
     {
       this.state = {
-        pickupRequests: [],
+        allOpenOrders: [],
+        allAcceptedOrders: [],
         currentLocation: "home"
       };
     }
   }
 
-  getPickupRequests = () => {
-    api.getRequest("/pickuprequests", pickupRequests => {
-      this.setState({ pickupRequests });
+  getAllOpenOrders = () => {
+    api.getRequest("/pickuprequests", allOpenOrders => {
+      this.setState({ allOpenOrders });
+    });
+  };
+
+  getAllAcceptedOrders = () => {
+    api.getRequest("/pickuprequests", allAcceptedOrders => {
+      this.setState({ allAcceptedOrders });
+    });
+  };
+
+  getAllCompletedOrders = () => {
+    api.getRequest("/pickuprequests", allCompletedOrders => {
+      this.setState({ allCompletedOrders });
     });
   };
 
@@ -28,7 +42,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getPickupRequests();
+    this.getAllOpenOrders();
+    this.getAllAcceptedOrders();
+    this.getAllCompletedOrders();
   }
 
   orderForm = (locationStart, locationEnd, time, description) => {
@@ -40,11 +56,11 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ pickupRequests: data });
+        this.setState({ allOpenOrders: data });
       });
   };
 
-  acceptOrder = (id) => {
+  assignOrder = (id) => {
     let orderId = { id };
     fetch(`/driver/accept/`, {
       method: "POST",
@@ -52,9 +68,10 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ pickupRequests: data });
+        this.setState({ allOpenOrders: data });
       });
-  };
+      this.setState({ currentLocation: AllOpenOrders });
+    };
 
   render() {
     return (
@@ -65,10 +82,10 @@ class App extends Component {
         <div className="container">
 
           
-          {this.state.currentLocation === "pickupRequests" && (
-            <PickupRequests 
-              pickupRequests={this.state.pickupRequests} 
-              acceptOrder={this.acceptOrder}
+          {this.state.currentLocation === "allOpenOrders" && (
+            <AllOpenOrders 
+            allOpenOrders={this.state.allOpenOrders} 
+              assignOrder={this.assignOrder}
             />
           )}
           
@@ -82,6 +99,20 @@ class App extends Component {
               <OrderForm orderForm={this.orderForm} />
             </div>
           )}
+
+            {this.state.currentLocation === "user" && (
+            <div className="">
+              <AllAcceptedOrders allAcceptedOrders={this.state.allAcceptedOrders} />
+              <OrderForm orderForm={this.orderForm} />
+            </div>
+          )} 
+
+           {this.state.currentLocation === "driver" && (
+            <div className="">
+              <AllAcceptedOrders allAcceptedOrders={this.state.allAcceptedOrders} />
+              <OrderForm orderForm={this.orderForm} />
+            </div>
+          )}    
         </div>
       </div>
     );
