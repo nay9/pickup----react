@@ -5,6 +5,7 @@ import OrderForm from "./components/OrderForm/OrderForm";
 import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import MapContainer from "./components/MapContainer"
 
 class App extends Component {
   constructor() {
@@ -82,6 +83,12 @@ class App extends Component {
               <OrderForm orderForm={this.orderForm} />
             </div>
           )}
+
+        <div className="mapView">
+        <section className="map-container">
+            <MapContainer />
+        </section>
+    </div>
         </div>
       </div>
     );
