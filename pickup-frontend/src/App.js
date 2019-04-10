@@ -117,7 +117,6 @@ class App extends Component {
            {this.state.currentLocation === "home" && (
             <div className="">
               <Home /> 
-              <OrderForm orderForm={this.orderForm} />
             </div>
           )}
 
@@ -140,11 +139,11 @@ class App extends Component {
             </div>
           )}    
 
-        <div className="mapView">
+        {/* <div className="mapView">
         <section className="map-container">
             <MapContainer />
         </section>
-    </div>
+    </div> */}
 
         </div>
       </div>
