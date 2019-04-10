@@ -7,7 +7,6 @@
 
 .box:hover{
     box-shadow: 5px;
-    background-color: grey;
 }
 
 .hide {

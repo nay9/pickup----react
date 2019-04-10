@@ -9,3 +9,17 @@
     justify-content: space-between;
     width: 100%;
 }
+.logo{
+    /* justify-content: space-between;
+    /* width: 30%; */
+   float : top;
+    float:left;
+    display: flex;
+    
+    padding-top:12px;
+    margin-left:-10px;
+    align-items: center;
+    
+
+   
+}
