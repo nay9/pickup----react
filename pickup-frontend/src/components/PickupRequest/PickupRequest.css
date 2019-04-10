@@ -1,8 +1,9 @@
 .box {
     width: 100%;
     margin-bottom: 2rem;
-    border: 1px solid black;
-    padding: 1rem;
+    /* border: 1px solid grey; */
+    padding: 2rem;
+    box-shadow: 0px 2px 8px lightgrey;
 }
 
 .box:hover{
@@ -12,3 +13,29 @@
 .hide {
     display:none;
 }
+
+#btn{
+    font-size: 1.5rem;
+    width: 100%;
+    color: #EEE;
+    border: 0;
+    background: #0181c4;
+    border-radius: 8px;
+    margin-top: 2rem;
+
+}
+
+.grid__section{
+    display: flex;
+    justify-content: space-between;
+}
+
+#map{
+    height: 6rem;
+    width: 6rem;
+    border: 5px solid #000;
+
+}
+
+
+
