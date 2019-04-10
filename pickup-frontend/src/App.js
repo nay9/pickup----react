@@ -5,7 +5,7 @@ import OrderForm from "./components/OrderForm/OrderForm";
 import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
-
+import HomeButton from "./components/Home/HomeButton";
 import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders"
 import AllCompletedOrders from './components/PickupRequest/AllCompletedOrders'
 
@@ -46,6 +46,7 @@ class App extends Component {
 
   updateCurrentLocation = location => {
     this.setState({ currentLocation: location });
+    console.log(123)
   };
 
   componentDidMount() {
@@ -117,6 +118,8 @@ class App extends Component {
            {this.state.currentLocation === "home" && (
             <div className="">
               <Home /> 
+            <HomeButton updateCurrentLocation={this.updateCurrentLocation} />
+
             </div>
           )}
 
