@@ -29,7 +29,7 @@ public class Initializer  implements CommandLineRunner{
 		driverRepo.save(driver);
 		
 		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", "5:00","Couch", driver));
-		requestPickup.updateStatus();
+		
 		orderRepo.save(requestPickup);
 		
 

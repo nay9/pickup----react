@@ -1,0 +1,22 @@
+.wrapper{
+    display : grid;
+    grid-column: auto;
+}
+.logo{
+
+justify-content: left;
+}
+.btn{
+    height: 4rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.user__steps{
+
+}
+.driver__steps{
+
+}
+.modal{
+
+}
