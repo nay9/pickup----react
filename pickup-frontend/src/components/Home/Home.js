@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import './Home.css'
-
+import HomeButton from './HomeButton.js'
 
 export class Home extends Component {
   render() {
     return (    
     <article className="wrapper">
-    <div className="btn">
-        {/* <h2>Home</h2> */}
-        <button className="login__name btn">Login</button>
-        <button className="register__page btn">Register</button>
-        <button className="about__pickup btn">About</button>
-    </div>    
+    {/* <HomeButton updateCurrentLocation={updateCurrentLocation} /> */}
       <section className="modal hide">   
           <div className="logo__box">
           {/* <div className="logo"><img src={Logo}></img></div> */}
