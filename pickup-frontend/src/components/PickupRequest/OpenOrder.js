@@ -13,7 +13,7 @@ class OpenOrder extends Component {
     if (status === 'DO'){
     return (
     <div className="box">
-      <form className="" onSubmit={this.onSubmit}>
+      
           <h2 className="box-item">{ description }</h2>
           <p className="box-item">Starting Location: { locationStart }</p>
           <p className="box-item">Destination: { locationEnd }</p>
@@ -21,7 +21,6 @@ class OpenOrder extends Component {
           <p className="box-item">Status: { status }</p>
           <p className="">Order Confirmation: { id }</p>
           <button className="btn" onClick={()=>this.props.assignOrder(id) }>Accept Order</button>
-      </form>
     </div> )} 
 
     else return ("")

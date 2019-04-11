@@ -24,6 +24,8 @@ class App extends Component {
     }
   }
 
+
+  
   getAllOpenOrders = () => {
     api.getRequest("/pickuprequests", allOpenOrders => {
       this.setState({ allOpenOrders });
@@ -54,7 +56,6 @@ class App extends Component {
 
   orderForm = (locationStart, locationEnd, time, description) => {
     let order = { locationStart, locationEnd, time, description };
-    console.log(typeof locationStart);
     fetch(`/pickuprequests/add`, {
       method: "POST",
       body: JSON.stringify(order)
@@ -74,14 +75,16 @@ class App extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
+          allOpenOrders: data,
           allCompletedOrders: data,
-          allAcceptedOrders: data,
-          allOpenOrders: data
+          allAcceptedOrders: data
         });
       });
     this.setState({ currentLocation: "driver" });
   };
 
+
+  
   markComplete = id => {
     let orderId = { id };
     fetch(`/driver/accept/`, {
@@ -135,7 +138,6 @@ class App extends Component {
               <AllCompletedOrders
                 allCompletedOrders={this.state.allCompletedOrders}
               />
-              <OrderForm orderForm={this.orderForm} />
             </div>
           )}
         </div>
