@@ -30,9 +30,9 @@
     justify-content: space-between;
 }
 
-#map{
-    height: 6rem;
-    width: 6rem;
+.map{
+    height: 200px !important;
+    width: 200px !important;
     border: 5px solid #000;
 
 }

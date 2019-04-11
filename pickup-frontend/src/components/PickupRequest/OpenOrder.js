@@ -5,9 +5,6 @@ import MapContainer from '../MapContainer'
 class OpenOrder extends Component {
 
 
-
-
-
   render() {
     const { id, locationStart, locationEnd, time, description, status } = this.props.openOrder;
 
@@ -26,8 +23,8 @@ class OpenOrder extends Component {
           </div>
           <div className="grid__item">
             <h1>Mapping</h1>
-              <div id="map">
-                <MapContainer />
+              <div className="map" >
+                  <MapContainer />
               </div>
           </div>
         </section>
@@ -36,7 +33,6 @@ class OpenOrder extends Component {
       </div>
       </form>
     </div>
-    
     )} 
 
     else return ("")
