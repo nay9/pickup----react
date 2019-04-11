@@ -30,7 +30,6 @@ class OpenOrder extends Component {
       <div id="btnM">
         <button id="btn" onClick={()=>this.props.assignOrder(id) }>Accept Order</button>
       </div>
-      </form>
     </div>
     )} 
 
