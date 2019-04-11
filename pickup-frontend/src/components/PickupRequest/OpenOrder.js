@@ -6,8 +6,7 @@ class OpenOrder extends Component {
 
 
   render() {
-    const { id, locationStart, locationEnd, time, description, status } = this.props.openOrder;
-
+    const { id, locationStart, locationEnd, time, description, status} = this.props.openOrder;
     if (status === 'DO'){
     return (
     <div className="box">

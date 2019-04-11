@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import AllOpenOrders from "./components/PickupRequest/AllOpenOrders";
-import OrderForm from "./components/OrderForm/OrderForm";
 import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import HomeButton from "./components/Home/HomeButton";
-import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders";
-import AllCompletedOrders from "./components/PickupRequest/AllCompletedOrders";
+import UserView from './components/Layout/User/UserView';
+import DriverView from './components/Layout/Driver/DriverView';
 
 
 class App extends Component {
@@ -84,6 +82,7 @@ class App extends Component {
 
 
   
+  
   markComplete = id => {
     let orderId = { id };
     fetch(`/driver/accept/`, {
@@ -114,31 +113,29 @@ class App extends Component {
             </div>
           )}
 
+
           {this.state.currentLocation === "user" && (
-            <div>
-              <AllOpenOrders allOpenOrders={this.state.allOpenOrders} />
-              <AllAcceptedOrders
-                allAcceptedOrders={this.state.allAcceptedOrders}
-              />
-              <OrderForm orderForm={this.orderForm} />
-            </div>
-          )}
+            <UserView
+              allOpenOrders={this.state.allOpenOrders} 
+              allAcceptedOrders={this.state.allAcceptedOrders}
+              orderForm={this.orderForm} 
+            /> 
+            )}
 
           {this.state.currentLocation === "driver" && (
-            <div>
-              <AllAcceptedOrders
-                allAcceptedOrders={this.state.allAcceptedOrders}
-                markComplete={this.markComplete}
-              />
-              <AllOpenOrders
-                allOpenOrders={this.state.allOpenOrders}
-                assignOrder={this.assignOrder}
-              />
-              <AllCompletedOrders
-                allCompletedOrders={this.state.allCompletedOrders}
-              />
-            </div>
+            <DriverView
+            allAcceptedOrders={this.state.allAcceptedOrders}
+            markComplete={this.markComplete}
+            allOpenOrders={this.state.allOpenOrders}
+            assignOrder={this.assignOrder}
+            allCompletedOrders={this.state.allCompletedOrders}
+            />
           )}
+
+
+
+
+          
         </div>
       </div>
     );
