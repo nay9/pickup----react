@@ -65,11 +65,14 @@ class OrderForm extends Component {
             value={this.state.description}
             onChange={this.onChange}
           />
+          <div id = "btnM">
           <input
-            className="btn form-btn"
+            className="form-btn"
+            id="btn"
             type="submit"
             value="Submit"
           />
+          </div>
         </form>
       </div>
     );
