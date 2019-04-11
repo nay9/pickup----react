@@ -8,7 +8,7 @@ import Nav from '../Nav/Nav'
 export default ({ updateCurrentLocation }) => (
     <header className="site-header">
       <div className="branding">
-      <div><img className="logo" src={Logo}></img></div>
+      <div><img className="logo" src={Logo} alt="logo"></img></div>
       </div>
         <Nav updateCurrentLocation={updateCurrentLocation} />
     </header>
