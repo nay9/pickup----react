@@ -22,7 +22,7 @@ class OpenOrder extends Component {
             <p className="">Order Confirmation: { id }</p>
           </div>
           <div className="grid__item">
-            <h1>Mapping</h1>
+            <h1>Location</h1>
               <div className="map" >
                   <MapContainer />
               </div>
