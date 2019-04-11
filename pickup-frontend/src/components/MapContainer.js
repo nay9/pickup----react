@@ -1,21 +1,53 @@
-import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import React from "react"
+import { compose, withProps } from "recompose"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
-export class MapContainer extends Component {
+  const Map = compose(
+  withProps({
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `195px` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
+  }),
+  withScriptjs,
+  withGoogleMap
+)((props) =>
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{ lat: 39.9611755, lng: -82.9987942 }}
+  >
+    {props.isMarkerShown && <Marker position={{ lat: 39.9611755, lng: -82.9987942 }} onClick={props.onMarkerClick} />}
+  </GoogleMap>
+)
+
+class MapContainer extends React.PureComponent {
+  state = {
+    isMarkerShown: false,
+  }
+
+  componentDidMount() {
+    this.delayedShowMarker()
+  }
+
+  delayedShowMarker = () => {
+    setTimeout(() => {
+      this.setState({ isMarkerShown: true })
+    }, 3000)
+  }
+
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false })
+    this.delayedShowMarker()
+  }
+
   render() {
     return (
       <Map
-        google={this.props.google}
-        zoom={14}
-        initialCenter={{
-         lat: -1.2884,
-         lng: 36.8233
-        }}
+        isMarkerShown={this.state.isMarkerShown}
+        onMarkerClick={this.handleMarkerClick}
       />
-    );
+    )
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyC6wQaQsgfm_w4qxJo2zsmyMAG_Tf5KeA8'
-})(MapContainer);
+export default MapContainer;
