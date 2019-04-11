@@ -14,13 +14,13 @@ class AllOpenOrders extends Component {
       <div>
         {this.props.allOpenOrders.map((openOrder) => 
           (
-            <div>
+           
               <OpenOrder
                 key={openOrder.id}
                 openOrder={ openOrder }
                 assignOrder = {this.props.assignOrder}
               />
-            </div>
+            
 
           ))
         }
