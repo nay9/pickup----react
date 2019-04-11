@@ -11,7 +11,6 @@ class OpenOrder extends Component {
     if (status === 'DO'){
     return (
     <div className="box">
-      <form className="" onSubmit={this.onSubmit}>
         <section className="grid__section">
           <div className="grid__item">
             <h2 className="box-item">{ description }</h2>
