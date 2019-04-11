@@ -9,19 +9,18 @@ import HomeButton from "./components/Home/HomeButton";
 import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders";
 import AllCompletedOrders from "./components/PickupRequest/AllCompletedOrders";
 
-import MapContainer from "./components/MapContainer";
 
 class App extends Component {
   constructor() {
     super();
-    {
+    
       this.state = {
         allOpenOrders: [],
         allAcceptedOrders: [],
         allCompletedOrders: [],
         currentLocation: "home"
       };
-    }
+    
   }
 
 

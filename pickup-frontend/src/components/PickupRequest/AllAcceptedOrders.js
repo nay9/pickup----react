@@ -7,13 +7,13 @@ export class AllAcceptedOrders extends Component {
         <div>
           {this.props.allAcceptedOrders.map((acceptedOrder) => 
             (
-              <div>
+            
                 <AcceptedOrder
                   key={acceptedOrder.id}
                   acceptedOrder={ acceptedOrder }
                   markComplete = {this.props.markComplete}
                 />
-              </div>
+             
   
             ))
           }
