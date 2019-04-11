@@ -6,12 +6,10 @@ import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import HomeButton from "./components/Home/HomeButton";
-import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders"
-import AllCompletedOrders from './components/PickupRequest/AllCompletedOrders'
+import AllAcceptedOrders from "./components/PickupRequest/AllAcceptedOrders";
+import AllCompletedOrders from "./components/PickupRequest/AllCompletedOrders";
 
-
-import MapContainer from "./components/MapContainer"
-
+import MapContainer from "./components/MapContainer";
 
 class App extends Component {
   constructor() {
@@ -26,6 +24,8 @@ class App extends Component {
     }
   }
 
+
+  
   getAllOpenOrders = () => {
     api.getRequest("/pickuprequests", allOpenOrders => {
       this.setState({ allOpenOrders });
@@ -46,18 +46,16 @@ class App extends Component {
 
   updateCurrentLocation = location => {
     this.setState({ currentLocation: location });
-    console.log(123)
   };
 
   componentDidMount() {
-    this.getAllOpenOrders();
-    this.getAllAcceptedOrders();
     this.getAllCompletedOrders();
+    this.getAllAcceptedOrders();
+    this.getAllOpenOrders();
   }
 
   orderForm = (locationStart, locationEnd, time, description) => {
     let order = { locationStart, locationEnd, time, description };
-    console.log(typeof locationStart);
     fetch(`/pickuprequests/add`, {
       method: "POST",
       body: JSON.stringify(order)
@@ -68,7 +66,7 @@ class App extends Component {
       });
   };
 
-  assignOrder = (id) => {
+  assignOrder = id => {
     let orderId = { id };
     fetch(`/driver/accept/`, {
       method: "POST",
@@ -76,78 +74,72 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ allOpenOrders: data });
-      });
-      this.setState({ currentLocation: AllOpenOrders });
-    };
-
-    markComplete = (id) => {
-      let orderId = { id };
-      fetch(`/driver/accept/`, {
-        method: "POST",
-        body: JSON.stringify(orderId)
-      })
-        .then(res => res.json())
-        .then(data => {
-          this.setState({ allAcceptedOrders: data });
-          this.setState({ allCompletedOrders: data });
+        this.setState({
+          allOpenOrders: data,
+          allCompletedOrders: data,
+          allAcceptedOrders: data
         });
-        this.setState({ currentLocation: AllOpenOrders});
-      };
+      });
+    this.setState({ currentLocation: "driver" });
+  };
+
+
+  
+  markComplete = id => {
+    let orderId = { id };
+    fetch(`/driver/accept/`, {
+      method: "POST",
+      body: JSON.stringify(orderId)
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          allOpenOrders: data,
+          allCompletedOrders: data,
+          allAcceptedOrders: data
+        });
+      });
+    this.setState({ currentLocation: "driver" });
+  };
 
   render() {
     return (
       <div className="App">
-
         <Header updateCurrentLocation={this.updateCurrentLocation} />
 
         <div className="container">
-
-          
-          {this.state.currentLocation === "allOpenOrders" && (
-            <AllOpenOrders 
-            allOpenOrders={this.state.allOpenOrders} 
-              assignOrder={this.assignOrder}
-            />
-          )}
-          
-          {this.state.currentLocation === "orderForm" && (
-            <OrderForm orderForm={this.orderForm} />
-          )}
-            
-           {this.state.currentLocation === "home" && (
-            <div className="">
-              <Home /> 
-            <HomeButton updateCurrentLocation={this.updateCurrentLocation} />
-
+          {this.state.currentLocation === "home" && (
+            <div>
+              <Home />
+              <HomeButton updateCurrentLocation={this.updateCurrentLocation} />
             </div>
           )}
 
-
-            {this.state.currentLocation === "user" && (
-            <div className="">
-              <AllAcceptedOrders allAcceptedOrders={this.state.allAcceptedOrders} />
+          {this.state.currentLocation === "user" && (
+            <div>
+              <AllOpenOrders allOpenOrders={this.state.allOpenOrders} />
+              <AllAcceptedOrders
+                allAcceptedOrders={this.state.allAcceptedOrders}
+              />
               <OrderForm orderForm={this.orderForm} />
             </div>
-          )} 
+          )}
 
-           {this.state.currentLocation === "driver" && (
-            <div className="">
-              <AllAcceptedOrders 
-                allAcceptedOrders={this.state.allAcceptedOrders} 
-                markComplete={this.markComplete}/>
-              <AllCompletedOrders allCompletedOrders={this.state.allCompletedOrders} />
-              <OrderForm orderForm={this.orderForm} />
-
+          {this.state.currentLocation === "driver" && (
+            <div>
+              <AllAcceptedOrders
+                allAcceptedOrders={this.state.allAcceptedOrders}
+                markComplete={this.markComplete}
+              />
+              <AllOpenOrders
+                allOpenOrders={this.state.allOpenOrders}
+                assignOrder={this.assignOrder}
+              />
+              <AllCompletedOrders
+                allCompletedOrders={this.state.allCompletedOrders}
+              />
             </div>
-          )}    
-
-        {/* <div className="mapView">
-        <section className="map-container">
-            <MapContainer />
-        </section>
-    </div> */}
-
+          )}
         </div>
       </div>
     );
