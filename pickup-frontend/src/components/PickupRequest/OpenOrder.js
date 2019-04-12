@@ -6,9 +6,7 @@ class OpenOrder extends Component {
 
 
   render() {
-
     const { id, locationStart, locationEnd, time, description, status, img } = this.props.openOrder;
-
 
     if (status === 'DO'){
     return (
@@ -24,9 +22,7 @@ class OpenOrder extends Component {
             <p className="">Order Confirmation: { id }</p>
           </div>
           <div className="grid__item">
-           
-          
-            
+            <img src={img}/>  
           </div>
           <div className="grid__item">
               <div className="map" >
