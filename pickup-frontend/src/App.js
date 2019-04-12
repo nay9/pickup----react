@@ -3,7 +3,7 @@ import "./App.css";
 import api from "./utils/api";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
-import HomeButton from "./components/Home/HomeButton";
+
 import UserView from './components/Layout/User/UserView';
 import DriverView from './components/Layout/Driver/DriverView';
 
@@ -80,8 +80,6 @@ class App extends Component {
     this.setState({ currentLocation: "driver" });
   };
 
-
-  
   
   markComplete = id => {
     let orderId = { id };
@@ -103,14 +101,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header updateCurrentLocation={this.updateCurrentLocation} />
+        <Header 
+          updateCurrentLocation={this.updateCurrentLocation} 
+        />
+
 
         <div className="container">
           {this.state.currentLocation === "home" && (
-            <div>
-              <Home />
-              <HomeButton updateCurrentLocation={this.updateCurrentLocation} />
-            </div>
+            <Home 
+              updateCurrentLocation={this.updateCurrentLocation}
+            />       
           )}
 
 
@@ -122,20 +122,16 @@ class App extends Component {
             /> 
             )}
 
+
           {this.state.currentLocation === "driver" && (
             <DriverView
-            allAcceptedOrders={this.state.allAcceptedOrders}
-            markComplete={this.markComplete}
-            allOpenOrders={this.state.allOpenOrders}
-            assignOrder={this.assignOrder}
-            allCompletedOrders={this.state.allCompletedOrders}
+              allAcceptedOrders={this.state.allAcceptedOrders}
+              markComplete={this.markComplete}
+              allOpenOrders={this.state.allOpenOrders}
+              assignOrder={this.assignOrder}
+              allCompletedOrders={this.state.allCompletedOrders}
             />
-          )}
-
-
-
-
-          
+          )} 
         </div>
       </div>
     );
