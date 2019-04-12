@@ -53,8 +53,8 @@ class App extends Component {
     this.getAllOpenOrders();
   }
 
-  orderForm = (locationStart, locationEnd, time, description) => {
-    let order = { locationStart, locationEnd, time, description };
+  orderForm = (locationStart, locationEnd, time, description, img) => {
+    let order = { locationStart, locationEnd, time, description, img };
     fetch(`/pickuprequests/add`, {
       method: "POST",
       body: JSON.stringify(order)
