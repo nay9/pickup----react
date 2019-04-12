@@ -1,0 +1,20 @@
+.howto-grid{
+    background-color: #43d0cb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+
+.grid-item{
+    border: 1px solid black;
+    color: #F8F8FF;
+    height: 350px;
+    width: 350px;
+    font-size: 1.2rem;
+}
+
+.fa-couch{
+    width: 200px;
+}
