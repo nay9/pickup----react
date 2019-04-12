@@ -6,7 +6,9 @@ class OpenOrder extends Component {
 
 
   render() {
+
     const { id, locationStart, locationEnd, time, description, status, img } = this.props.openOrder;
+
 
     if (status === 'DO'){
     return (
