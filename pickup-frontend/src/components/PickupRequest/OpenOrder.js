@@ -24,9 +24,9 @@ class OpenOrder extends Component {
             <p className="">Order Confirmation: { id }</p>
           </div>
           <div className="grid__item">
-            <div className="itemPicture" >
-            <img className="box-item" src={img}>Item to Move:</img>
-            </div>
+           
+          
+            
           </div>
           <div className="grid__item">
               <div className="map" >
