@@ -19,6 +19,7 @@ public  class PickupRequest {
   	private String locationStart;
 	private String locationEnd;
 	private String time;
+	private String img;
 
 	
 	private String description;
@@ -30,19 +31,21 @@ public  class PickupRequest {
 
 	public PickupRequest() {}
 
-	public PickupRequest(String locationStart, String locationEnd, String time, String description) {
+	public PickupRequest(String locationStart, String locationEnd, String time, String description, String img) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
 		this.time = time;
 		this.description = description;
+		this.img = img;
 		this.status = status.DO;
 		this.driver = driver;
 	}
-	public PickupRequest(String locationStart, String locationEnd, String time, String description, Driver driver ) {
+	public PickupRequest(String locationStart, String locationEnd, String time, String description, String img, Driver driver ) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
 		this.time = time;
 		this.description = description;
+		this.img = img;
 		this.status = status.DO;
 		this.driver = driver;
 	}
@@ -71,6 +74,7 @@ public  class PickupRequest {
 	public String getDescription() {
 		return description;
 	}
+	
 //	public String getDate() {
 //		return DateTime.from(instant)
 //	}
@@ -78,6 +82,11 @@ public  class PickupRequest {
 	public Status getStatus() {
 		return status;
 	}
+	
+	public String getImg() {
+		return img;
+	}
+	
 	public void updateStatus() {
 		if(this.status.equals(Status.DO)) {
 			this.status = Status.DOING;

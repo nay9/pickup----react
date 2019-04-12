@@ -42,7 +42,8 @@ public class PickupRequestController {
 		String locationEnd = newPickupRequest.getString("locationEnd");
 		String time = newPickupRequest.getString("time");
 		String description = newPickupRequest.getString("description");
-		pickupRepo.save(new PickupRequest(locationStart, locationEnd, time, description));
+		String img = newPickupRequest.getString("img");
+		pickupRepo.save(new PickupRequest(locationStart, locationEnd, time, description, img));
 		return (Collection<PickupRequest>) pickupRepo.findAll();
 	}
 }
