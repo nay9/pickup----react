@@ -19,8 +19,8 @@ class AllOpenOrders extends Component {
                 key={openOrder.id}
                 openOrder={ openOrder }
                 assignOrder = {this.props.assignOrder}
-              />
-            
+                />
+                
 
           ))
         }
