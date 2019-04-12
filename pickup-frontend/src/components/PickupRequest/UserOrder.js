@@ -14,6 +14,7 @@ class OpenOrder extends Component {
         <section className="grid__section">
           <div className="grid__item">
             <h2 className="box-item">{ description }</h2>
+            <p className="box-item">Driver Name: { Driver }</p>
             <p className="box-item">Starting Location: { locationStart }</p>
             <p className="box-item">Destination: { locationEnd }</p>
             <p className="box-item">Time of Delivery: { time }</p>
@@ -26,16 +27,15 @@ class OpenOrder extends Component {
                   <MapContainer />
               </div>
           </div>
-        </section>
+        </section> 
       <div id="btnM">
         <button id="btn" onClick={()=>this.props.assignOrder(id) }>Accept Order</button>
       </div>
     </div>
     )} 
-   
+
     else return ("")
   }
 }
 
-export default OpenOrder;
-
+export default UserOrder;
