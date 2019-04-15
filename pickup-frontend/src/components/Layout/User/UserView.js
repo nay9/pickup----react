@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import AllOpenOrders from '../../PickupRequest/AllOpenOrders';
-import AllAcceptedOrders from '../../PickupRequest/AllAcceptedOrders';
+import AllOpenOrdersUser from '../../PickupRequest/AllOpenOrdersUser';
+import AllAcceptedOrderUser from '../../PickupRequest/AllAcceptedOrderUser';
 import OrderForm from '../../OrderForm/OrderForm';
 import './userview.css'
 
@@ -12,12 +12,12 @@ class User extends Component {
 
       <React.Fragment>
          
-        <AllOpenOrders 
-          allOpenOrders={this.props.allOpenOrders} 
+        <AllOpenOrdersUser
+          allOpenOrdersUser={this.props.allOpenOrdersUser} 
         />
         
-        <AllAcceptedOrders
-          allAcceptedOrders={this.props.allAcceptedOrders}
+        <AllAcceptedOrderUser
+          allAcceptedOrderUser={this.props.allAcceptedOrderUser}
           
         />
 

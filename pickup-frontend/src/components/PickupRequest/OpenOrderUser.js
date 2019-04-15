@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import './PickupRequest.css'
 import MapContainer from '../MapContainer'
 
-class OpenOrder extends Component {
+class OpenOrderUser extends Component {
 
 
   render() {
-
-    const { id, locationStart, locationEnd, time, description, status } = this.props.openOrder;
+    const { id, locationStart, locationEnd, time, description, status } = this.props.openOrderUser;
 
     if (status === 'DO'){
     return (
@@ -28,9 +27,6 @@ class OpenOrder extends Component {
               </div>
           </div>
         </section>
-      <div id="btnM">
-        <button id="btn" onClick={()=>this.props.assignOrder(id) }>Accept Order</button>
-      </div>
     </div>
     )} 
    
@@ -38,5 +34,5 @@ class OpenOrder extends Component {
   }
 }
 
-export default OpenOrder;
+export default OpenOrderUser;
 

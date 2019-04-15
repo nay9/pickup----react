@@ -1,0 +1,43 @@
+
+.subheader {
+
+    align-items: center;
+    background-image: linear-gradient(rgba(67, 208, 203, 0.8),rgba(0, 0, 0, 0.9)), url('../../../images/hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+}
+
+.subheader>*{
+    margin: 1rem;
+}
+
+.subheader h2{
+    color: #F8F8FF;
+    font-size: 2.7rem;
+    text-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+.subheader__links {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.subheader__links_btn{
+    border: 2px solid #F8F8FF;
+    background: none;
+    color: white;
+    margin: 1rem;
+    font-size: 1.3rem;
+    width: 17.5rem;
+    height: 3rem;
+}
+
+.subheader__links_btn:hover{
+    background-color: #43d0cb;
+    border: 2px solid #43d0cb;
+}
