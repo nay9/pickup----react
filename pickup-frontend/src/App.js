@@ -15,7 +15,7 @@ class App extends Component {
       this.state = {
         allOpenOrders: [],
         allAcceptedOrders: [],
-        allAcceptedOrdersUser: [],
+        allAcceptedOrderUser: [],
         allCompletedOrders: [],
         allOpenOrdersUser: [],
         currentLocation: "home"
@@ -41,9 +41,9 @@ class App extends Component {
       this.setState({ allAcceptedOrders });
     });
   };
-  getAllAcceptedOrdersUser = () => {
-    api.getRequest("/pickuprequests", allAcceptedOrdersUser => {
-      this.setState({ allAcceptedOrdersUser });
+  getAllAcceptedOrderUser = () => {
+    api.getRequest("/pickuprequests", allAcceptedOrderUser => {
+      this.setState({ allAcceptedOrderUser });
     });
   };
 
@@ -62,7 +62,7 @@ class App extends Component {
     this.getAllAcceptedOrders();
     this.getAllOpenOrders();
     this.getAllOpenOrdersUser();
-    this.getAllAcceptedOrdersUser();
+    this.getAllAcceptedOrderUser();
   }
 
   orderForm = (locationStart, locationEnd, time, description, img) => {
@@ -131,7 +131,7 @@ class App extends Component {
           {this.state.currentLocation === "user" && (
             <UserView
               allOpenOrdersUser={this.state.allOpenOrdersUser} 
-              allAcceptedOrdersUser={this.state.allAcceptedOrdersUser}
+              allAcceptedOrderUser={this.state.allAcceptedOrderUser}
               orderForm={this.orderForm} 
             /> 
             )}

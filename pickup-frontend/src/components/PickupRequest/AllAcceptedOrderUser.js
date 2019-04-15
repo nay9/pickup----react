@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import AcceptedOrderUser from './AcceptedOrderUser'
 
-export class AllAcceptedOrdersUser extends Component {
+export class AllAcceptedOrderUser extends Component {
   render() {
     return (
         <div>
-          {this.props.allAcceptedOrdersUser.map((acceptedOrderUser) => 
+          {this.props.allAcceptedOrderUser.map((acceptedOrderUser) => 
             (
             
                 <AcceptedOrderUser
@@ -23,4 +23,4 @@ export class AllAcceptedOrdersUser extends Component {
   }
 }
 
-export default AllAcceptedOrdersUser
+export default AllAcceptedOrderUser
