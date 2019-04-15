@@ -23,6 +23,7 @@ public class ReviewController {
 	public Driver addReview(@PathVariable Long id, @RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
 	    String reviewContent = json.getString("reviewContent");
+	    double driverRating= json.getInt("driverRating");
 	    Review reviewToAdd = new Review();
 	    Driver driver = driverRepo.findById(id).get();
 	    driver.addReview(reviewToAdd); 
