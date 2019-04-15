@@ -26,7 +26,7 @@ public class Driver<Rating> {
 	
 	public Driver() {}
 
-	public Driver(String driverName) {
+	public Driver(String driverName, int ratings) {
 		this.driverName = driverName;
 		this.pickupRequests = new ArrayList<PickupRequest>();
 		this.ratings = ratings;

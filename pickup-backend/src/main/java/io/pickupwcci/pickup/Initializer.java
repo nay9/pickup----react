@@ -28,7 +28,7 @@ public class Initializer  implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 
-		Driver driver = driverRepo.save(new Driver("Jimmy"));
+		Driver driver = driverRepo.save(new Driver("Jimmy",5));
 		driverRepo.save(driver);
 		
 		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", "5:00","Couch", "https://images-na.ssl-images-amazon.com/images/I/51nRhGW4%2BdL._AC_SY200_.jpg", driver));
