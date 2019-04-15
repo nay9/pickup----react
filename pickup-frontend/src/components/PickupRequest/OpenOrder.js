@@ -6,7 +6,9 @@ class OpenOrder extends Component {
 
 
   render() {
+
     const { id, locationStart, locationEnd, time, description, status } = this.props.openOrder;
+
 
     if (status === 'DO'){
     return (
@@ -21,6 +23,7 @@ class OpenOrder extends Component {
             <p className="">Order Confirmation: { id }</p>
           </div>
           <div className="grid__item">
+
             <h1>Location</h1>
               <div className="map" >
                   <MapContainer />
