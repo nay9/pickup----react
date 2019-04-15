@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import api from "./utils/api";
-import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
+import Header from "./components/Layout/Header/Header";
+import Home from "./components/Layout/Home/Home";
 
 import UserView from './components/Layout/User/UserView';
 import DriverView from './components/Layout/Driver/DriverView';
-
+import Footer from './components/Layout/Footer/Footer';
 
 class App extends Component {
   constructor() {
@@ -15,7 +15,9 @@ class App extends Component {
       this.state = {
         allOpenOrders: [],
         allAcceptedOrders: [],
+        allAcceptedOrderUser: [],
         allCompletedOrders: [],
+        allOpenOrdersUser: [],
         currentLocation: "home"
       };
     
@@ -28,10 +30,20 @@ class App extends Component {
       this.setState({ allOpenOrders });
     });
   };
+  getAllOpenOrdersUser = () => {
+    api.getRequest("/pickuprequests", allOpenOrdersUser => {
+      this.setState({ allOpenOrdersUser });
+    });
+  };
 
   getAllAcceptedOrders = () => {
     api.getRequest("/pickuprequests", allAcceptedOrders => {
       this.setState({ allAcceptedOrders });
+    });
+  };
+  getAllAcceptedOrderUser = () => {
+    api.getRequest("/pickuprequests", allAcceptedOrderUser => {
+      this.setState({ allAcceptedOrderUser });
     });
   };
 
@@ -49,6 +61,8 @@ class App extends Component {
     this.getAllCompletedOrders();
     this.getAllAcceptedOrders();
     this.getAllOpenOrders();
+    this.getAllOpenOrdersUser();
+    this.getAllAcceptedOrderUser();
   }
 
   orderForm = (locationStart, locationEnd, time, description, img) => {
@@ -106,7 +120,7 @@ class App extends Component {
         />
 
 
-        <div className="container">
+        <div className="mt4">
           {this.state.currentLocation === "home" && (
             <Home 
               updateCurrentLocation={this.updateCurrentLocation}
@@ -116,8 +130,8 @@ class App extends Component {
 
           {this.state.currentLocation === "user" && (
             <UserView
-              allOpenOrders={this.state.allOpenOrders} 
-              allAcceptedOrders={this.state.allAcceptedOrders}
+              allOpenOrdersUser={this.state.allOpenOrdersUser} 
+              allAcceptedOrderUser={this.state.allAcceptedOrderUser}
               orderForm={this.orderForm} 
             /> 
             )}
@@ -133,6 +147,7 @@ class App extends Component {
             />
           )} 
         </div>
+        <Footer />
       </div>
     );
   }
