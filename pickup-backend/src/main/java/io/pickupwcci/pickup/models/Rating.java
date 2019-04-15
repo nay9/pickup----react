@@ -18,12 +18,14 @@ public class Rating {
 	private Driver driver;
 	private double driverRating;
 	
+	
 	public Rating() {}
 	
 	public Rating(Driver driver, double driverRating) {
-		super();
+		
 		this.driver = driver;
 		this.driverRating = driverRating;
+		
 	}
 
 	public Long getId() {
@@ -37,4 +39,6 @@ public class Rating {
 	public double getDriverRating() {
 		return driverRating;
 	}
+	
+	
 }

@@ -1,19 +1,36 @@
 .order-form{
     width: 100%;
+    text-align: center;
+    box-shadow: 0px 2px 8px lightgrey;
+    padding: 1rem;
 }
 
-.form-item, .btn{ 
+.form-item{ 
     height: 4rem;
-    width: 100%;
+    width: 60%;
     margin-bottom: 1rem;
+    box-shadow: 0px 0px 8px 1px lightgrey;
+    border-top: none;
+    border-left: none;
 
+    /* text-align: center; */
 }
 
-.btn{
+#btn{
     font-size: 1.5rem;
+    width: 40%;
     color: #EEE;
     border: 0;
-    background: rgb(51,128,129);
-    background: linear-gradient(0deg, rgba(51,128,129,1) 0%, rgba(62,172,173,1) 100%);
-   
+    background: #0181c4;
+    border-radius: 8px;
+    
 }
+
+#btnM{
+    text-align: center;
+}
+
+.form-btn{
+    width: 60%;
+}
+

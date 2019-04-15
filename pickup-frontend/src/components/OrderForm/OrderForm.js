@@ -6,7 +6,8 @@ class OrderForm extends Component {
     locationStart: "",
     locationEnd: "",
     time: "",
-    description: ""
+    description: "",
+    img: ""
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -17,14 +18,16 @@ class OrderForm extends Component {
       this.state.locationStart,
       this.state.locationEnd,
       this.state.time,
-      this.state.description
+      this.state.description,
+      this.state.img
     );
 
     this.setState({
       locationStart: "",
       locationEnd: "",
       time: "",
-      description: ""
+      description: "",
+      img: ""
     });
   };
 
@@ -65,11 +68,22 @@ class OrderForm extends Component {
             value={this.state.description}
             onChange={this.onChange}
           />
+           <input
+            className="form-item"
+            type="textarea"
+            name="img"
+            placeholder="Upload image"
+            value={this.state.img}
+            onChange={this.onChange}
+          />
+          <div id = "btnM">
           <input
-            className="btn form-btn"
+            className="form-btn"
+            id="btn"
             type="submit"
             value="Submit"
           />
+          </div>
         </form>
       </div>
     );

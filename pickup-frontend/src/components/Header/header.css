@@ -1,25 +1,25 @@
 .site-header{
-    background-color: #234a5b;
+    background-color: #000;
     color: white;
     display: flex;
-    height: 4rem;
+    height: 2.8rem;
     margin-bottom: 3rem;
     padding: 0 0.6rem;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    box-shadow: 0px 2px 10px #0181c4;
+
 }
 .logo{
     /* justify-content: space-between;
     /* width: 30%; */
-   float : top;
+    float : top;
     float:left;
+    margin-top: 2px;
     display: flex;
-    
-    padding-top:12px;
-    margin-left:-10px;
+    padding: 2px;
+    margin-left:-20px;
     align-items: center;
-    
-
-   
+    height: 5.1rem;  
 }
