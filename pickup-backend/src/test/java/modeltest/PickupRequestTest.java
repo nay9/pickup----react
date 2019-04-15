@@ -18,7 +18,7 @@ public class PickupRequestTest {
 	PickupRequest orderTest;
 	@Before
 	public void setup() {
-		orderTest = new PickupRequest("locationStart", "locationEnd", "time", "description");
+		orderTest = new PickupRequest("locationStart", "locationEnd", "time", "description", null);
 	}
 
 	@Test

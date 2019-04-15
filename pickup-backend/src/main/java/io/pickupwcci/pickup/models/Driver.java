@@ -21,11 +21,16 @@ public class Driver {
 	@OneToMany(mappedBy="driver")
 	private Collection<Rating> ratings;
 	
+	@OneToMany(mappedBy="driver")
+	private Collection<Review> reviews;
+	
 	public Driver() {}
 
 	public Driver(String driverName) {
 		this.driverName = driverName;
 		this.pickupRequests = new ArrayList<PickupRequest>();
+		this.ratings = new ArrayList<Rating>();
+		this.reviews = new ArrayList<Review>();
 		
 	}
 
@@ -41,15 +46,23 @@ public class Driver {
 		return pickupRequests;
 	}
 	
+	public Collection<Review> getReviews(){
+		return reviews;
+	}
 	
-	@Override	public String toString() {
-		return "Driver [id=" + id + ", driverName=" + driverName + ", pickupRequests=" + pickupRequests + "]";
+	
+	public void addReview(Review reviewToAdd) {
+		reviews.add(reviewToAdd);
+		
+	}
+	
+	@Override
+	public String toString() {
+		return "Driver [id=" + id + ", driverName=" + driverName + ", pickupRequests=" + pickupRequests + ", ratings="
+				+ ratings + ", reviews=" + reviews + "]";
 	}
 
-//	public void addReview(Review reviewToAdd) {
-//		
-//		
-//	}
-//	
+
+
 	
 }
