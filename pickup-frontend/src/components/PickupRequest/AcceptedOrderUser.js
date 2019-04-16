@@ -16,6 +16,7 @@ export class AcceptedOrderUser extends Component {
                 <p className="box-item">Time of Delivery: { time }</p>
                 <p className="box-item">Status: { status }</p>
                 <p className="">Order Confirmation: { id }</p>
+                
         </div> )} 
 
     else return ("")
