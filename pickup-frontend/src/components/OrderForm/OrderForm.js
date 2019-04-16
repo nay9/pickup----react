@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import './orderform.css'
 import UserCalendar from '../Calendar.js'
+import AltCalendar from '../DatePicker.js'
 
 class OrderForm extends Component {
   state = {
     locationStart: "",
     locationEnd: "",
+    date: "",
     time: "",
     description: "",
     img: ""
@@ -18,19 +20,28 @@ class OrderForm extends Component {
     this.props.orderForm(
       this.state.locationStart,
       this.state.locationEnd,
+      this.state.date,
       this.state.time,
       this.state.description,
       this.state.img
-    );
+      );
+
 
     this.setState({
       locationStart: "",
       locationEnd: "",
+      date: "",
       time: "",
       description: "",
       img: ""
     });
   };
+
+  setDate = (date) => {
+      this.setState({ date });
+  };
+
+
 
   render() {
     // destructure this.state.
@@ -79,7 +90,12 @@ class OrderForm extends Component {
             onChange={this.onChange}
           />
           <div className="calendar">
-              <UserCalendar />
+              <UserCalendar 
+              setDate={this.setDate}
+              value={this.state.date}
+              handleChange={this.handleChange}
+              />
+
           </div>
           <div id = "btnM">
           <input

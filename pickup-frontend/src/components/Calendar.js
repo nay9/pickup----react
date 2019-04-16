@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
+import { throws } from 'assert';
  
 class UserCalendar extends Component {
-  state = {
-    date: new Date(),
+    constructor(props) {
+        super(props);
+            this.handleChange = this.handleChange.bind(this)
   }
  
-  onChange = date => this.setState({ date })
+  handleChange(date) {
+
+  };
  
   render() {
     return (
       <div>
         <Calendar
-          onChange={this.onChange}
-          value={this.state.date}
+          selected={this.props}
+          onChange={(date) => this.props.setDate(date) }
         />
       </div>
     );
+  
   }
 }
 
