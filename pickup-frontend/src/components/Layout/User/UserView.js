@@ -11,11 +11,11 @@ class User extends Component {
     return (
 
       <React.Fragment>
-         
         <AllOpenOrdersUser
           allOpenOrdersUser={this.props.allOpenOrdersUser} 
+          
         />
-        
+      
         <AllAcceptedOrderUser
           allAcceptedOrderUser={this.props.allAcceptedOrderUser}
           

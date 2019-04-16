@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Driver {
+public class Driver<Rating> {
 
 	@Id
 	@GeneratedValue
@@ -18,18 +18,18 @@ public class Driver {
 	@OneToMany(mappedBy = "driver")
 	private Collection<PickupRequest> pickupRequests;
 	
-	@OneToMany(mappedBy="driver")
-	private Collection<Rating> ratings;
+	
+	private int ratings;
 	
 	@OneToMany(mappedBy="driver")
 	private Collection<Review> reviews;
 	
 	public Driver() {}
 
-	public Driver(String driverName) {
+	public Driver(String driverName, int ratings) {
 		this.driverName = driverName;
 		this.pickupRequests = new ArrayList<PickupRequest>();
-		this.ratings = new ArrayList<Rating>();
+		this.ratings = ratings;
 		this.reviews = new ArrayList<Review>();
 		
 	}
