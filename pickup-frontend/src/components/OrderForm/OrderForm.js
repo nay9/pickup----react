@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import './orderform.css'
+import UserCalendar from '../Calendar.js'
+import AltCalendar from '../DatePicker.js'
 
 class OrderForm extends Component {
   state = {
     locationStart: "",
     locationEnd: "",
+    date: "",
     time: "",
     description: "",
     img: ""
@@ -17,24 +20,34 @@ class OrderForm extends Component {
     this.props.orderForm(
       this.state.locationStart,
       this.state.locationEnd,
+      this.state.date,
       this.state.time,
       this.state.description,
       this.state.img
-    );
+      );
+
 
     this.setState({
       locationStart: "",
       locationEnd: "",
+      date: "",
       time: "",
       description: "",
       img: ""
     });
   };
 
+  setDate = (date) => {
+      this.setState({ date });
+  };
+
+
+
   render() {
     // destructure this.state.
     return (
       <div className="card">
+
         <form className="order-form" onSubmit={this.onSubmit}>
           <input
             className="form-item"
@@ -54,14 +67,6 @@ class OrderForm extends Component {
           />
           <input
             className="form-item"
-            type="text"
-            name="time"
-            placeholder="When?"
-            value={this.state.time}
-            onChange={this.onChange}
-          />
-          <input
-            className="form-item"
             type="textarea"
             name="description"
             placeholder="Details..."
@@ -76,6 +81,22 @@ class OrderForm extends Component {
             value={this.state.img}
             onChange={this.onChange}
           />
+          <input
+            className="form-item"
+            type="text"
+            name="time"
+            placeholder="When?"
+            value={this.state.time}
+            onChange={this.onChange}
+          />
+          <div className="calendar">
+              <UserCalendar 
+              setDate={this.setDate}
+              value={this.state.date}
+              handleChange={this.handleChange}
+              />
+
+          </div>
           <div id = "btnM">
           <input
             className="form-btn"
@@ -87,6 +108,8 @@ class OrderForm extends Component {
         </form>
       </div>
     );
+    
+  
   }
 }
 

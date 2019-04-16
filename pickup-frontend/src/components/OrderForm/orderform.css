@@ -34,3 +34,8 @@
     width: 60%;
 }
 
+.calendar{
+display: flex;
+justify-content: center;
+}
+

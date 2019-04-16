@@ -7,8 +7,7 @@ class OpenOrder extends Component {
 
   render() {
 
-    const { id, locationStart, locationEnd, time, description, status } = this.props.openOrder;
-
+    const { id, locationStart, locationEnd, date, time, description, status, img } = this.props.openOrder;
 
     if (status === 'DO'){
     return (
@@ -18,6 +17,7 @@ class OpenOrder extends Component {
             <h2 className="box-item">{ description }</h2>
             <p className="box-item">Starting Location: { locationStart }</p>
             <p className="box-item">Destination: { locationEnd }</p>
+            <p className="box-item">Date of Delivery: { date }</p>
             <p className="box-item">Time of Delivery: { time }</p>
             <p className="box-item">Status: { status }</p>
             <p className="">Order Confirmation: { id }</p>
