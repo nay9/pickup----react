@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import io.pickupwcci.pickup.models.Driver;
 import io.pickupwcci.pickup.models.PickupRequest;
+import io.pickupwcci.pickup.models.Review;
 import io.pickupwcci.pickup.repositories.DriverRepository;
 import io.pickupwcci.pickup.repositories.PickupRequestRepository;
+import io.pickupwcci.pickup.repositories.ReviewRepository;
 
 @Service
 public class Initializer  implements CommandLineRunner{
@@ -18,14 +20,15 @@ public class Initializer  implements CommandLineRunner{
 	@Resource
 	DriverRepository driverRepo;
 	
-	
+	@Resource
+	ReviewRepository reviewRepo;
 	
 	
 	@Override
 	public void run(String... args) throws Exception {
 		
 
-		Driver driver = driverRepo.save(new Driver("Jimmy"));
+		Driver driver = driverRepo.save(new Driver("Jimmy",5));
 		driverRepo.save(driver);
 		
 		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", "5:00","Couch", "https://images-na.ssl-images-amazon.com/images/I/51nRhGW4%2BdL._AC_SY200_.jpg", driver));
@@ -37,16 +40,14 @@ public class Initializer  implements CommandLineRunner{
 		requestPickup2.updateStatus();
 		orderRepo.save(requestPickup2);
 		
+		Review review1 = new Review(driver, "Good driver", 4);
+		driver.addReview(review1);
+		reviewRepo.save(review1);
 		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
+//		Rating rating1 = new Rating(driver,5);
+//		reviewRepo.save(rating1);
+		
+		
+	}		
 	
 }
