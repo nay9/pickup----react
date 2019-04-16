@@ -65,16 +65,20 @@ class App extends Component {
     this.getAllAcceptedOrderUser();
   }
 
-  orderForm = (locationStart, locationEnd, time, description, img) => {
-    let order = { locationStart, locationEnd, time, description, img };
+  orderForm = (locationStart, locationEnd, date, time, description, img) => {
+    let order = { locationStart, locationEnd, date, time, description, img };
     fetch(`/pickuprequests/add`, {
       method: "POST",
       body: JSON.stringify(order)
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ allOpenOrders: data });
+        this.setState({ 
+          allOpenOrders: data, 
+          allOpenOrdersUser: data
+         });
       });
+      this.setState({ currentLocation: "user" });
   };
 
   assignOrder = id => {
@@ -88,7 +92,9 @@ class App extends Component {
         this.setState({
           allOpenOrders: data,
           allCompletedOrders: data,
-          allAcceptedOrders: data
+          allAcceptedOrders: data,
+          allOpenOrdersUser: data,
+          allAcceptedOrderUser: data
         });
       });
     this.setState({ currentLocation: "driver" });
@@ -106,7 +112,9 @@ class App extends Component {
         this.setState({
           allOpenOrders: data,
           allCompletedOrders: data,
-          allAcceptedOrders: data
+          allAcceptedOrders: data,
+          allAcceptedOrderUser: data,
+          allOpenOrdersUser: data
         });
       });
     this.setState({ currentLocation: "driver" });
