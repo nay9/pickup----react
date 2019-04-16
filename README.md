@@ -16,7 +16,7 @@ Basic functionality: posting new orders, drivers being able to accept orders, an
 Clone project from github, open project `dev` Branch - navigate to 'pickup-backend' folder - run `gradle eclipse` on this file, and import to Eclipse. Then, run application as Java project. 
 
 
-Nagivate to pickup-frontend folder - dev branch run `npm start`, then run `npm audit fix`, followed by `npm install --save react-google-maps` to fire up React page (inside node modules ensure you see google-maps-react). Here you will be able to see our progress!
+Nagivate to pickup-frontend folder - dev branch, then run `npm install react-calendar` then `npm install --save react-google-maps`, then run `npm audit fix`, finally run `npm start`to fire up React page (inside node modules ensure you see google-maps-react). Here you will be able to see our progress!
 
 ### What I really like?
 
