@@ -11,7 +11,7 @@ export class HowTo extends Component {
         </div>
 
   <div className="grid-item">
-    <i class="fas fa-truck-loading"></i>
+    <i className="fas fa-truck-loading"></i>
       <p>
   
          User
@@ -21,7 +21,7 @@ export class HowTo extends Component {
         </p>
     </div>
     <div className="grid-item">
-    <i class="fas fa-peace"></i>
+    <i className="fas fa-peace"></i>
         <p>
           Driver
           Step1: View Open Orders.
