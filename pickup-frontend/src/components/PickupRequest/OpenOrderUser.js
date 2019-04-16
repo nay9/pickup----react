@@ -6,7 +6,7 @@ class OpenOrderUser extends Component {
 
 
   render() {
-    const { id, locationStart, locationEnd, time, description, status } = this.props.openOrderUser;
+    const { id, locationStart, locationEnd, time, description, status, img } = this.props.openOrderUser;
 
     if (status === 'DO'){
     return (
@@ -19,7 +19,10 @@ class OpenOrderUser extends Component {
             <p className="box-item">Time of Delivery: { time }</p>
             <p className="box-item">Status: { status }</p>
             <p className="">Order Confirmation: { id }</p>
-          </div>
+            </div>
+            <div className= "grid__item">
+            <img src= {img}/>
+            </div>
           <div className="grid__item">
             <h1>Location</h1>
               <div className="map" >
