@@ -4,7 +4,7 @@ export class AcceptedOrderUser extends Component {
  
  
   render() {
-    const { id, locationStart, locationEnd, time, description, status, img } = this.props.acceptedOrderUser;
+    const { id, locationStart, locationEnd, date, time, description, status, img } = this.props.acceptedOrderUser;
 
     if (status === 'DOING'){
     return (
@@ -15,15 +15,17 @@ export class AcceptedOrderUser extends Component {
                 <p className="box-item">Driver</p>
                 <p className="box-item">Starting Location: { locationStart }</p>
                 <p className="box-item">Destination: { locationEnd }</p>
+                <p className="box-item">Date of Delivery: { date }</p>
                 <p className="box-item">Time of Delivery: { time }</p>
                 <p className="box-item">Status: { status }</p>
                 <p className="">Order Confirmation: { id }</p>
           </div>
           <div className= "grid__item">
+          <h1>Item:</h1>
             <img src= {img}/>
             </div>
           <div className="grid__item">
-            <h1>Location</h1>
+            <h1>Location:</h1>
               <div className="map" >
                   <MapContainer />
               </div>
