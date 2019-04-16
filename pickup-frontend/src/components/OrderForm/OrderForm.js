@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './orderform.css'
+import UserCalendar from '../Calendar.js'
 
 class OrderForm extends Component {
   state = {
@@ -35,6 +36,7 @@ class OrderForm extends Component {
     // destructure this.state.
     return (
       <div className="card">
+
         <form className="order-form" onSubmit={this.onSubmit}>
           <input
             className="form-item"
@@ -54,14 +56,6 @@ class OrderForm extends Component {
           />
           <input
             className="form-item"
-            type="text"
-            name="time"
-            placeholder="When?"
-            value={this.state.time}
-            onChange={this.onChange}
-          />
-          <input
-            className="form-item"
             type="textarea"
             name="description"
             placeholder="Details..."
@@ -76,6 +70,17 @@ class OrderForm extends Component {
             value={this.state.img}
             onChange={this.onChange}
           />
+          <input
+            className="form-item"
+            type="text"
+            name="time"
+            placeholder="When?"
+            value={this.state.time}
+            onChange={this.onChange}
+          />
+          <div className="calendar">
+              <UserCalendar />
+          </div>
           <div id = "btnM">
           <input
             className="form-btn"
@@ -87,6 +92,8 @@ class OrderForm extends Component {
         </form>
       </div>
     );
+    
+  
   }
 }
 
