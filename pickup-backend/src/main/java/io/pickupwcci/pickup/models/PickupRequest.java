@@ -18,6 +18,7 @@ public  class PickupRequest {
 	private Long id;
 	private String locationStart;
 	private String locationEnd;
+	private String date;
 	private String time;
 	private String img;
 
@@ -31,18 +32,20 @@ public  class PickupRequest {
 
 	public PickupRequest() {}
 
-	public PickupRequest(String locationStart, String locationEnd, String time, String description, String img) {
+	public PickupRequest(String locationStart, String locationEnd, String date, String time, String description, String img) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
+		this.date = date;
 		this.time = time;
 		this.description = description;
 		this.img = img;
 		this.status = status.DO;
 		this.driver = driver;
 	}
-	public PickupRequest(String locationStart, String locationEnd, String time, String description, String img, Driver driver ) {
+	public PickupRequest(String locationStart, String locationEnd, String date, String time, String description, String img, Driver driver ) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
+		this.date = date;
 		this.time = time;
 		this.description = description;
 		this.img = img;
@@ -67,6 +70,10 @@ public  class PickupRequest {
 		return locationEnd;
 	}
 
+	public String getDate() {
+		return date;
+	}
+	
 	public String getTime() {
 		return time;
 	}
