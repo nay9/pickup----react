@@ -11,9 +11,17 @@ class User extends Component {
     return (
 
       <React.Fragment>
+        <section className="title__user">
+        <h1>Submit An Order Here:</h1>
+        
+        <OrderForm
+          orderForm={this.props.orderForm} 
+        />
+        </section>
+
+
         <AllOpenOrdersUser
           allOpenOrdersUser={this.props.allOpenOrdersUser} 
-          
         />
       
         <AllAcceptedOrderUser
@@ -21,9 +29,7 @@ class User extends Component {
           
         />
 
-        <OrderForm
-          orderForm={this.props.orderForm} 
-        />
+        
 
       </React.Fragment>
         

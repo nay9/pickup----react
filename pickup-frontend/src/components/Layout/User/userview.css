@@ -1,0 +1,11 @@
+.title__user {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title__user h1{
+    font-size: 5rem;
+    text-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
