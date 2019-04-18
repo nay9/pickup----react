@@ -8,6 +8,15 @@ import '../../OrderForm/Modal.css'
 
 class User extends Component {
 
+  openModalHandler = () => {
+    this.setState({
+        isShowing: true
+    });}
+    closeModalHandler = () => {
+      this.setState({
+          isShowing: false
+      });
+  }
   
   render() {
 
@@ -19,7 +28,7 @@ class User extends Component {
         
         <OrderForm
           orderForm={this.props.orderForm} 
-          onSubmit={this.openModalHandler}
+          
         />
         </section>
 
@@ -33,37 +42,23 @@ class User extends Component {
           
         />
 
-              <div>
-                <button className="open-modal-btn" onClick={this.openModalHandler}>Order Status</button>
-                <isShowing
+              
+               <isShowing
                 isShowing={this.props.isShowing}
                 />
                        
                 <Modal           
                     className="modal"
-                    show={this.state.isShowing}
+                    show={this.props.isShowing}
                     close={this.closeModalHandler}>
                         Your order has been submitted.
                 </Modal>
-              </div>
-
+              
       </React.Fragment>
-        
     )
   }
 
-  openModalHandler = () => {
-    this.setState({
-        isShowing: true
-    });}
-    closeModalHandler = () => {
-      this.setState({
-          isShowing: false
-      });
-  }
-  
-
-
+ 
 }
 
 export default User
