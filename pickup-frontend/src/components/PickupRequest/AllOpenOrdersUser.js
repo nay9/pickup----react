@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
 import OpenOrderUser from './OpenOrderUser'
 
-
-
-
-
 class AllOpenOrdersUser extends Component {
-
-
   render() {
 
     return (

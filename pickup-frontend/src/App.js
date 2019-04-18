@@ -65,8 +65,8 @@ class App extends Component {
     this.getAllAcceptedOrderUser();
   }
 
-  orderForm = (locationStart, locationEnd, date, time, description, img) => {
-    let order = { locationStart, locationEnd, date, time, description, img };
+  orderForm = (locationStart, locationEnd, date, description, img) => {
+    let order = { locationStart, locationEnd, date, description, img };
     fetch(`/pickuprequests/add`, {
       method: "POST",
       body: JSON.stringify(order)

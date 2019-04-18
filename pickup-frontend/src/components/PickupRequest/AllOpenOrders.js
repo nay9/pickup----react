@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import OpenOrder from './OpenOrder'
 
-
-
-
-
 class AllOpenOrders extends Component {
 
 
