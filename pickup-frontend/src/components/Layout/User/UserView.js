@@ -3,9 +3,13 @@ import AllOpenOrdersUser from '../../PickupRequest/AllOpenOrdersUser';
 import AllAcceptedOrderUser from '../../PickupRequest/AllAcceptedOrderUser';
 import OrderForm from '../../OrderForm/OrderForm';
 import './userview.css'
+import Modal from '../../OrderForm/Modal';
+import '../../OrderForm/Modal.css'
 
 class User extends Component {
 
+  
+  
   render() {
 
     return (
@@ -16,6 +20,7 @@ class User extends Component {
         
         <OrderForm
           orderForm={this.props.orderForm} 
+          
         />
         </section>
 
@@ -28,15 +33,12 @@ class User extends Component {
           allAcceptedOrderUser={this.props.allAcceptedOrderUser}
           
         />
-
-        
-
+              
       </React.Fragment>
-        
     )
   }
+
+ 
 }
 
 export default User
-
-

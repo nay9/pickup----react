@@ -5,12 +5,12 @@ export class HowTo extends Component {
   render() {
     return (
       <div className="howto">
-        <h2>Big things, Small Car?</h2>
+        <h2>Big Things, Small Car?</h2>
      
         <div className="howto-grid">
             <div className="grid-item a">
             <i className="fas fa-couch"></i>
-            <p>Big things, Small Car?</p>
+            <p>Big Things, Small Car?</p>
         </div>
 
 
@@ -22,7 +22,7 @@ export class HowTo extends Component {
          User
           step1: Create your new order.
           Step2: Track your order.
-          Step3: Set back and relax. 
+          Step3: Sit back and relax. 
         </p>
     </div>
 
@@ -32,7 +32,7 @@ export class HowTo extends Component {
         <p>
           Driver
           Step1: View Open Orders.
-          Step2: Accept a Convinent Order.
+          Step2: Accept a Convenient Order.
           Step3: Make Money.
         </p>
     </div>
