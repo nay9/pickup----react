@@ -4,6 +4,9 @@ import './Modal.css';
 const modal = (props) => {
     return (
         <div>
+            <isShowing
+                isShowing={this.props.isShowing}
+                />
             <div className="modal-wrapper"
                 style={{
                     transform: props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
@@ -24,6 +27,7 @@ const modal = (props) => {
             </div>
         </div>
     )
+    
 }
 
 export default modal;

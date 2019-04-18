@@ -120,17 +120,8 @@ class App extends Component {
       });
     this.setState({ currentLocation: "driver" });
   };
-  openModalHandler = () => {
-    this.setState({
-        isShowing: true
-    });
-}
+  
 
-closeModalHandler = () => {
-    this.setState({
-        isShowing: false
-    });
-}
 
   render() {
     return (
@@ -153,6 +144,7 @@ closeModalHandler = () => {
               allOpenOrdersUser={this.state.allOpenOrdersUser} 
               allAcceptedOrderUser={this.state.allAcceptedOrderUser}
               orderForm={this.orderForm} 
+              isShowing={this.isShowing}
             /> 
             )}
 
@@ -167,18 +159,7 @@ closeModalHandler = () => {
             />
           )} 
         </div>
-        <div>
-                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
-
-                <button className="open-modal-btn" onClick={this.openModalHandler}>Order Status</button>
-
-                <Modal
-                    className="modal"
-                    show={this.state.isShowing}
-                    close={this.closeModalHandler}>
-                        Your order has been submitted.
-                </Modal>
-            </div>
+        
         <Footer />
       </div>
     );
