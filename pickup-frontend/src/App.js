@@ -65,7 +65,15 @@ class App extends Component {
     this.getAllOpenOrdersUser();
     this.getAllAcceptedOrderUser();
   }
-
+  openModalHandler = () => {
+    this.setState({
+        isShowing: true
+    });}
+    closeModalHandler = () => {
+      this.setState({
+          isShowing: false
+      });
+  }
   orderForm = (locationStart, locationEnd, date, time, description, img) => {
     let order = { locationStart, locationEnd, date, time, description, img };
     fetch(`/pickuprequests/add`, {
@@ -79,9 +87,11 @@ class App extends Component {
           allOpenOrdersUser: data
          });
       });
-      this.setState({ currentLocation: "user" });
+      this.setState({ currentLocation: "user", isShowing:true});      
+      
   };
-
+ 
+  
   assignOrder = id => {
     let orderId = { id };
     fetch(`/driver/accept/`, {
@@ -146,6 +156,17 @@ class App extends Component {
               orderForm={this.orderForm} 
               isShowing={this.isShowing}
             /> 
+           
+            )}
+
+            {this.state.currentLocation === "user" && (
+            <Modal
+            className="modal"
+            show={this.state.isShowing}
+            close={this.closeModalHandler}
+            
+            /> 
+           
             )}
 
 

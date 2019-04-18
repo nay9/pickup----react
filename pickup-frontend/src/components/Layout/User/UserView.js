@@ -8,15 +8,7 @@ import '../../OrderForm/Modal.css'
 
 class User extends Component {
 
-  openModalHandler = () => {
-    this.setState({
-        isShowing: true
-    });}
-    closeModalHandler = () => {
-      this.setState({
-          isShowing: false
-      });
-  }
+  
   
   render() {
 
@@ -41,18 +33,6 @@ class User extends Component {
           allAcceptedOrderUser={this.props.allAcceptedOrderUser}
           
         />
-
-              
-               <isShowing
-                isShowing={this.props.isShowing}
-                />
-                       
-                <Modal           
-                    className="modal"
-                    show={this.props.isShowing}
-                    close={this.closeModalHandler}>
-                        Your order has been submitted.
-                </Modal>
               
       </React.Fragment>
     )

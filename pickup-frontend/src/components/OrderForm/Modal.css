@@ -1,21 +1,26 @@
 .modal-wrapper {
-    background: white;
-    border: 1px solid #d0cccc;
+    background: green;
+    border: 5px solid black;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
     margin: 100px auto 0;
+    padding: 5rem;
     transition: all .8s;
     width: 60%;
+    position: fixed;
+    top: 8rem;
+    left: 10rem;
+
 }
 
 .modal-header {
-    background: #263238;
+    background: white;
     height: 40px;
     line-height: 40px;
     padding: 5px 20px;
     text-align: right;
 }
 
-.modal-header h3 {
+.modal-header h1 {
     color: white;
     float: left;
     margin: 0;
