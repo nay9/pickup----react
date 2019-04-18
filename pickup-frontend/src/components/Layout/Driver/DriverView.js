@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import AllOpenOrders from '../../PickupRequest/AllOpenOrders';
 import AllAcceptedOrders from '../../PickupRequest/AllAcceptedOrders';
 import AllCompletedOrders from '../../PickupRequest/AllCompletedOrders';
-import MapContainer from '../../MapContainer';
+import MapContainer from '../../Map/MapContainer';
 import './DriverView.css'
 import '../../PickupRequest/PickupRequest.css'
 
