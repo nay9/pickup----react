@@ -24,10 +24,11 @@ class CompletedOrder extends Component {
                 <p className="">Order Confirmation: { id }</p>
                 </div>
             <div className= "grid__item">
+            <h1>Item:</h1>
             <img src= {img}/>
             </div>
           <div className="grid__item">
-            <h1>Location</h1>
+            <h1>Location:</h1>
               <div className="map" >
                   <MapContainer />
               </div>
