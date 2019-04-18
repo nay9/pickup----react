@@ -3,7 +3,7 @@ import "./App.css";
 import api from "./utils/api";
 import Header from "./components/Layout/Header/Header";
 import Home from "./components/Layout/Home/Home";
-
+import Modal from "./components/OrderForm/Modal";
 import UserView from './components/Layout/User/UserView';
 import DriverView from './components/Layout/Driver/DriverView';
 import Footer from './components/Layout/Footer/Footer';
@@ -18,7 +18,8 @@ class App extends Component {
         allAcceptedOrderUser: [],
         allCompletedOrders: [],
         allOpenOrdersUser: [],
-        currentLocation: "home"
+        currentLocation: "home",
+        isShowing: false
       };
     
   }
@@ -119,6 +120,17 @@ class App extends Component {
       });
     this.setState({ currentLocation: "driver" });
   };
+  openModalHandler = () => {
+    this.setState({
+        isShowing: true
+    });
+}
+
+closeModalHandler = () => {
+    this.setState({
+        isShowing: false
+    });
+}
 
   render() {
     return (
@@ -155,6 +167,18 @@ class App extends Component {
             />
           )} 
         </div>
+        <div>
+                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
+
+                <button className="open-modal-btn" onClick={this.openModalHandler}>Order Status</button>
+
+                <Modal
+                    className="modal"
+                    show={this.state.isShowing}
+                    close={this.closeModalHandler}>
+                        Your order has been submitted.
+                </Modal>
+            </div>
         <Footer />
       </div>
     );
