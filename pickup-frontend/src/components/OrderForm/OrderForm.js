@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import './orderform.css'
+import './Modal.js'
+
 
 class OrderForm extends Component {
   state = {
