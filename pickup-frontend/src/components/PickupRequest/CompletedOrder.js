@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MapContainer from '../MapContainer'
+import MapContainer from '../Map/MapContainer'
 
 class CompletedOrder extends Component {
  
@@ -26,12 +26,7 @@ class CompletedOrder extends Component {
             <h1>Item:</h1>
             <img src= {img}/>
             </div>
-          <div className="grid__item">
-            <h1>Location:</h1>
-              <div className="map" >
-                  <MapContainer />
-              </div>
-          </div>
+          
         </section>
                 
         </div> )} 

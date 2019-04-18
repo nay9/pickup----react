@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MapContainer from '../MapContainer'
+import Map from '../Map/Map'
 
 export class AcceptedOrder extends Component {
  
@@ -28,8 +28,11 @@ export class AcceptedOrder extends Component {
             </div>
           <div className="grid__item">
             <h1>Location:</h1>
-              <div className="map" >
-                  <MapContainer />
+            <div className="mapDirections" >
+                  <Map 
+                  origin = {locationStart} 
+                  destination = {locationEnd}
+                  />
               </div>
           </div>
         </section>

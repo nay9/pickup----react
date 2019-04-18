@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './PickupRequest.css'
-import MapContainer from '../MapContainer'
+import Map from '../Map/Map'
 
 class OpenOrderUser extends Component {
 
@@ -27,8 +27,11 @@ class OpenOrderUser extends Component {
             </div>
           <div className="grid__item">
             <h1>Location:</h1>
-              <div className="map" >
-                  <MapContainer />
+            <div className="mapDirections" >
+                  <Map 
+                  origin = {locationStart} 
+                  destination = {locationEnd}
+                  />
               </div>
           </div>
         </section>

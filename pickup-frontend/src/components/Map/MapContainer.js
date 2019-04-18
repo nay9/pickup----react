@@ -1,7 +1,6 @@
 import React from "react"
 import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps"
-import MapGeoLocator from "./MapGeoLocator"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
   const Map = compose(
   withProps({
@@ -20,7 +19,6 @@ import MapGeoLocator from "./MapGeoLocator"
     {props.isMarkerShown && <Marker position={{ lat: 39.9611755, lng: -82.9987942 }} onClick={props.onMarkerClick} />}
     {props.isMarkerShown && <Marker position={{ lat: 38.9611755, lng: -82.9987942 }} onClick={props.onMarkerClick} />}
     {props.isMarkerShown && <Marker position={{ lat: 39.9611755, lng: -81.9987942 }} onClick={props.onMarkerClick} />}
-    {props.isMarkerShown && <Marker position={{ MapGeoLocator}} onClick={props.onMarkerClick} />}
   </GoogleMap>
 )
 
