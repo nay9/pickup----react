@@ -17,9 +17,8 @@ public  class PickupRequest {
   	private String locationStart;
 	private String locationEnd;
 	private String date;
-	
+	private String time;
 	private String img;
-	  
 	private String description;
 	private Status status;
 	@ManyToOne
@@ -28,19 +27,21 @@ public  class PickupRequest {
 	 
 	public PickupRequest() {}
 
-	public PickupRequest(String locationStart, String locationEnd,String date,String description, String img) {
+	public PickupRequest(String locationStart, String locationEnd,String date,String time,String description, String img) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
 		this.date= date;
+		this.time = time;
 		this.description = description;
 		this.img = img;
 		this.status = status.DO;
 		this.driver = driver;
 	}
-	public PickupRequest(String locationStart, String locationEnd, String date,String description, String img, Driver driver ) {
+	public PickupRequest(String locationStart, String locationEnd, String date,String time,String description, String img, Driver driver ) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
 		this.date = date;
+		this.time = time;
 		this.description = description;
 		this.img = img;
 		this.status = status.DO;
@@ -68,6 +69,11 @@ public  class PickupRequest {
 		return date;
 	}
 	
+	
+
+	public String getTime() {
+		return time;
+	}
 
 	public String getDescription() {
 		return description;
