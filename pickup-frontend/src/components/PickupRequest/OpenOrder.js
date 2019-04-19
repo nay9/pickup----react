@@ -9,7 +9,7 @@ class OpenOrder extends Component {
 
     const { id, locationStart, locationEnd, date, description, status, img } = this.props.openOrder;
 
-    if (status === 'DO'){
+    if (status === 'OPEN'){
     return (
     <div className="box">
         <section className="grid__section">
