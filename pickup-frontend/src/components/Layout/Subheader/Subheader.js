@@ -6,7 +6,7 @@ export class Subheader extends Component {
   render() {
     return (
       <section className="subheader">
-        <h2>We're your friend with a pickup</h2>
+        <h2>We're your friend with a pickup!</h2>
         <SubheaderLinks 
             updateCurrentLocation={this.props.updateCurrentLocation}
         />

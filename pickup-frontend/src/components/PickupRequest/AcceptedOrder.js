@@ -20,7 +20,7 @@ export class AcceptedOrder extends Component {
                 <p className="box-item">Destination: { locationEnd }</p>
                 <p className="box-item">Date of Delivery: { date }</p>
                 <p className="box-item">Status: { status }</p>
-                <p className="">Order Confirmation: { id }</p>
+                <p className="">Order ID: { id }</p>
                 </div>
             <div className= "grid__item">
             <h1>Item:</h1>
