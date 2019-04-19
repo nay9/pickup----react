@@ -11,11 +11,11 @@ const modal = (props) => {
                     opacity: props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h1>Your Order Has Been Submitted</h1>
+                    <h2 className="modal_text">Thank you for your order!</h2>
                 </div>
                
                 <div className="modal-footer">
-                    <button className="btn-cancel" onClick={props.close}>CLOSE</button>
+                    <button className="btn-form" onClick={props.close}>Close</button>
                 </div>
             </div>
         </div>

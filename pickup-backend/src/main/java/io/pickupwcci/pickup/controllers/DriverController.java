@@ -41,7 +41,6 @@ public class DriverController {
 		pickupRequest.setDriver(driver);
 		pickupRequest.updateStatus();
 		pickupRequestRepo.save(pickupRequest);
-		// fix return later -- figure out what want to actually render
 		return (Collection<PickupRequest>) pickupRequestRepo.findAll();
 	}
 

@@ -47,9 +47,10 @@ class OrderForm extends Component {
   render() {
     // destructure this.state.
     return (
-      <div className="card">
-
+      <div className="order-form-container">
+        
         <form className="order-form" onSubmit={this.onSubmit}>
+        <h2>Submit An Order Here:</h2>
           <input
             className="form-item"
             type="text"
@@ -90,22 +91,16 @@ class OrderForm extends Component {
             value={this.state.time}
             onChange={this.onChange}
           />
-          <div className="calendar">
               <UserCalendar 
-              setDate={this.setDate}
-              value={this.state.date}
-              handleChange={this.handleChange}
+                setDate={this.setDate}
+                value={this.state.date}
+                handleChange={this.handleChange}
               />
-
-          </div>
-          <div id = "btnM">
           <input
-            className="form-btn"
-            id="btn"
+            className="btn-form"
             type="submit"
             value="Submit"
           />
-          </div>
         </form>
       </div>
     );

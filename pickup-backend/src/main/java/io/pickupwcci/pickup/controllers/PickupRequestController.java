@@ -1,6 +1,5 @@
 package io.pickupwcci.pickup.controllers;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
 
 import javax.annotation.Resource;
@@ -35,16 +34,17 @@ public class PickupRequestController {
 		return pickupRepo.findById(id).get();
 	}
 	
+	
 	@PostMapping("/add")
 	public Collection<PickupRequest> addPickupRequest(@RequestBody String body) throws JSONException {
 		JSONObject newPickupRequest = new JSONObject(body);
 		String locationStart = newPickupRequest.getString("locationStart");
 		String locationEnd = newPickupRequest.getString("locationEnd");
-		String date = newPickupRequest.getString("date");
+		String date =newPickupRequest.getString("date").substring(0,10); 
 		String time = newPickupRequest.getString("time");
-		String description = newPickupRequest.getString("description");
+	    String description = newPickupRequest.getString("description");
 		String img = newPickupRequest.getString("img");
-		pickupRepo.save(new PickupRequest(locationStart, locationEnd, date, time, description, img));
+		pickupRepo.save(new PickupRequest(locationStart, locationEnd, date,time, description, img));
 		return (Collection<PickupRequest>) pickupRepo.findAll();
 	}
 }
