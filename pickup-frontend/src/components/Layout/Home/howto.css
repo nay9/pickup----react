@@ -31,14 +31,41 @@
     text-shadow: 2px 2px 4px #000000;
 }
 
-.a, .b, .c{
-    background-image: url('https://images.pexels.com/photos/276746/pexels-photo-276746.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+/* .a{ */
+    /* background-image: url('https://images.pexels.com/photos/276746/pexels-photo-276746.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+} */
+.a, .b, .c{
+    background-color: #242124;
 }
 
 .fa-couch{
     width: 200px;
 
+}
+.b p {
+    text-align: left;
+    padding-top: 8px;
+    padding-bottom: 20px;
+}
+.c p {
+    text-align: left;
+    padding-top: 8px;
+    padding-bottom: 20px;
+}
+
+.a p {
+   
+    padding-top: 8px;
+    padding-bottom: 20px;
+}
+
+h3 {
+    padding-bottom: 20px;
+}
+
+.fas {
+    padding-top: 10px;
 }
