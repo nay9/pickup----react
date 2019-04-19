@@ -12,9 +12,13 @@
 
 .modal_text{
     color: black;
+    text-align: center;
 }
 
 
 .modal-footer{
+    padding-top: 2rem;
     margin-top: 1.5rem;
+    text-align: center;
+    margin: auto;
 }
