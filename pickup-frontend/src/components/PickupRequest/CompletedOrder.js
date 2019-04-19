@@ -9,7 +9,7 @@ class CompletedOrder extends Component {
     const { id, locationStart, locationEnd, date ,time, description, status, img } = this.props.completedOrder;
 
 
-    if (status === 'DONE'){
+    if (status === 'COMPLETED'){
     return (
         <div className="box">
         <section className="grid__section">
