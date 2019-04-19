@@ -6,7 +6,7 @@ export class AcceptedOrderUser extends Component {
   render() {
     const { id, locationStart, locationEnd, date, description, status, img } = this.props.acceptedOrderUser;
 
-    if (status === 'DOING'){
+    if (status === 'PROCESSING'){
     return (
         <div className="box">
         <section className= "grid__section">
