@@ -31,12 +31,12 @@ public class Initializer  implements CommandLineRunner{
 		Driver driver = driverRepo.save(new Driver("Jimmy",5));
 		driverRepo.save(driver);
 		
-		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms","date", "5:00","Couch", "https://images-na.ssl-images-amazon.com/images/I/51nRhGW4%2BdL._AC_SY200_.jpg", driver));
+		PickupRequest requestPickup = orderRepo.save(new PickupRequest("Home Depot", "Renes moms", "04/18/2019 12:42:20", "Couch", "https://images-na.ssl-images-amazon.com/images/I/51nRhGW4%2BdL._AC_SY200_.jpg", driver));
 		
 		orderRepo.save(requestPickup);
 		
 
-		PickupRequest requestPickup2 = orderRepo.save(new PickupRequest("Lowe's", "School", "date", "now","Lumber", "https://ak1.ostkcdn.com/images/products/14548038/P21099142.jpg?impolicy=medium&imwidth=200"));
+		PickupRequest requestPickup2 = orderRepo.save(new PickupRequest("Lowe's", "School","04/18/2019 12:42:20","Lumber", "https://ak1.ostkcdn.com/images/products/14548038/P21099142.jpg?impolicy=medium&imwidth=200"));
 		requestPickup2.updateStatus();
 		orderRepo.save(requestPickup2);
 		

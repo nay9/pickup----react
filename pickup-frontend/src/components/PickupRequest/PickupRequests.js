@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import PickupRequest from './OpenOrders';
 
 
-
-
-
-
 class PickupRequests extends Component {
 
 
