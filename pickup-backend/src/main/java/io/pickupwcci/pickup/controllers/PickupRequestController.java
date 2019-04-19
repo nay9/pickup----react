@@ -40,10 +40,11 @@ public class PickupRequestController {
 		JSONObject newPickupRequest = new JSONObject(body);
 		String locationStart = newPickupRequest.getString("locationStart");
 		String locationEnd = newPickupRequest.getString("locationEnd");
-		String date =newPickupRequest.getString("dd/MM/yyyy HH:mm:ss");  
+		String date =newPickupRequest.getString("date").substring(0,10); 
+		String time = newPickupRequest.getString("time");
 	    String description = newPickupRequest.getString("description");
 		String img = newPickupRequest.getString("img");
-		pickupRepo.save(new PickupRequest(locationStart, locationEnd, date, description, img));
+		pickupRepo.save(new PickupRequest(locationStart, locationEnd, date,time, description, img));
 		return (Collection<PickupRequest>) pickupRepo.findAll();
 	}
 }
