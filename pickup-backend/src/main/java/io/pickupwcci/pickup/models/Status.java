@@ -1,6 +1,6 @@
 package io.pickupwcci.pickup.models;
 
 public enum Status {
-	DO, DOING, DONE
+	OPEN, PROCESSING, COMPLETED
 
 }

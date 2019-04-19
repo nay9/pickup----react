@@ -9,7 +9,7 @@ export class AcceptedOrder extends Component {
     const { id, locationStart, locationEnd, date, description, status, img } = this.props.acceptedOrder;
 
 
-    if (status === 'DOING'){
+    if (status === 'PROCESSING'){
     return (
         <div className="box">
         <section className="grid__section">
