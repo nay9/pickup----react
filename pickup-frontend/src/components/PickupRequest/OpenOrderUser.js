@@ -8,7 +8,7 @@ class OpenOrderUser extends Component {
   render() {
     const { id, locationStart, locationEnd, date, time, description, status, img } = this.props.openOrderUser;
 
-    if (status === 'DO'){
+    if (status === 'OPEN'){
     return (
     <div className="box">
         <section className="grid__section">
