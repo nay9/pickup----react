@@ -76,6 +76,7 @@ class App extends Component {
   }
   orderForm = (locationStart, locationEnd, date, time, description, img) => {
     let order = { locationStart, locationEnd, date, time, description, img };
+
     fetch(`/pickuprequests/add`, {
       method: "POST",
       body: JSON.stringify(order)
