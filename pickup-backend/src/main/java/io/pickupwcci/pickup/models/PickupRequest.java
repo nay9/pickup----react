@@ -34,7 +34,7 @@ public  class PickupRequest {
 		this.time = time;
 		this.description = description;
 		this.img = img;
-		this.status = status.DO;
+		this.status = status.OPEN;
 		this.driver = driver;
 	}
 	public PickupRequest(String locationStart, String locationEnd, String date,String time,String description, String img, Driver driver ) {
@@ -44,7 +44,7 @@ public  class PickupRequest {
 		this.time = time;
 		this.description = description;
 		this.img = img;
-		this.status = status.DO;
+		this.status = status.OPEN;
 		this.driver = driver;
 	}
 
@@ -88,11 +88,11 @@ public  class PickupRequest {
 	}
 	
 	public void updateStatus() {
-		if(this.status.equals(Status.DO)) {
-			this.status = Status.DOING;
+		if(this.status.equals(Status.OPEN)) {
+			this.status = Status.PROCESSING;
 		}
-		else if(this.status.equals(Status.DOING)) {
-			this.status = Status.DONE;
+		else if(this.status.equals(Status.PROCESSING)) {
+			this.status = Status.COMPLETED;
 		}
 		
 	}
