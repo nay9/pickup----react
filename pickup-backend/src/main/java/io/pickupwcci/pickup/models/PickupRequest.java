@@ -1,7 +1,5 @@
 package io.pickupwcci.pickup.models;
 
-import java.util.Date;
-import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,35 +19,32 @@ public  class PickupRequest {
 	private String date;
 	private String time;
 	private String img;
-
-	
 	private String description;
 	private Status status;
 	@ManyToOne
 	@JsonIgnore
 	private Driver driver;
-	
-
+	 
 	public PickupRequest() {}
 
-	public PickupRequest(String locationStart, String locationEnd, String date, String time, String description, String img) {
+	public PickupRequest(String locationStart, String locationEnd,String date,String time,String description, String img) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
-		this.date = date;
+		this.date= date;
 		this.time = time;
 		this.description = description;
 		this.img = img;
-		this.status = status.DO;
+		this.status = status.OPEN;
 		this.driver = driver;
 	}
-	public PickupRequest(String locationStart, String locationEnd, String date, String time, String description, String img, Driver driver ) {
+	public PickupRequest(String locationStart, String locationEnd, String date,String time,String description, String img, Driver driver ) {
 		this.locationStart = locationStart;
 		this.locationEnd = locationEnd;
 		this.date = date;
 		this.time = time;
 		this.description = description;
 		this.img = img;
-		this.status = status.DO;
+		this.status = status.OPEN;
 		this.driver = driver;
 	}
 
@@ -74,6 +69,8 @@ public  class PickupRequest {
 		return date;
 	}
 	
+	
+
 	public String getTime() {
 		return time;
 	}
@@ -81,10 +78,6 @@ public  class PickupRequest {
 	public String getDescription() {
 		return description;
 	}
-	
-//	public String getDate() {
-//		return DateTime.from(instant)
-//	}
 	
 	public Status getStatus() {
 		return status;
@@ -95,15 +88,15 @@ public  class PickupRequest {
 	}
 	
 	public void updateStatus() {
-		if(this.status.equals(Status.DO)) {
-			this.status = Status.DOING;
+		if(this.status.equals(Status.OPEN)) {
+			this.status = Status.PROCESSING;
 		}
-		else if(this.status.equals(Status.DOING)) {
-			this.status = Status.DONE;
+		else if(this.status.equals(Status.PROCESSING)) {
+			this.status = Status.COMPLETED;
 		}
 		
 	}
-
+	
 	public void setDriver(Driver driver) {
 		this.driver = driver;
 	}
@@ -111,7 +104,11 @@ public  class PickupRequest {
 	@Override
 	public String toString() {
 		return "PickupRequest [id=" + id + ", locationStart=" + locationStart + ", locationEnd=" + locationEnd
-				+ ", time=" + time + ", description=" + description + ", status=" + status + "]";
+				+ ", date=" + date + ", img=" + img + ", description=" + description + ", status=" + status
+				+ ", driver=" + driver + "]";
 	}
 
+	
+	
+	
 }

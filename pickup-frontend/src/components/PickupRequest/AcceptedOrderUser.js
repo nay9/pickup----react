@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import MapContainer from '../MapContainer'
+import Map from '../Map/Map'
 export class AcceptedOrderUser extends Component {
  
  
   render() {
-    const { id, locationStart, locationEnd, date, time, description, status, img } = this.props.acceptedOrderUser;
+    const { id, locationStart, locationEnd, date, description, status, img } = this.props.acceptedOrderUser;
 
-    if (status === 'DOING'){
+    if (status === 'PROCESSING'){
     return (
         <div className="box">
         <section className= "grid__section">
@@ -16,9 +16,8 @@ export class AcceptedOrderUser extends Component {
                 <p className="box-item">Starting Location: { locationStart }</p>
                 <p className="box-item">Destination: { locationEnd }</p>
                 <p className="box-item">Date of Delivery: { date }</p>
-                <p className="box-item">Time of Delivery: { time }</p>
                 <p className="box-item">Status: { status }</p>
-                <p className="">Order Confirmation: { id }</p>
+                <p className="">Order ID: { id }</p>
           </div>
           <div className= "grid__item">
           <h1>Item:</h1>
@@ -26,8 +25,11 @@ export class AcceptedOrderUser extends Component {
             </div>
           <div className="grid__item">
             <h1>Location:</h1>
-              <div className="map" >
-                  <MapContainer />
+            <div className="mapDirections" >
+                  <Map 
+                  origin = {locationStart} 
+                  destination = {locationEnd}
+                  />
               </div>
           </div>
         </section>           

@@ -5,37 +5,42 @@ export class HowTo extends Component {
   render() {
     return (
       <div className="howto">
-        <h2>Big things, Small Car?</h2>
+ 
      
         <div className="howto-grid">
             <div className="grid-item a">
+            <h3>Big Things, Small Car?</h3>
+            <p>We can help with that!</p>
+            <p>Just snap a pic of your item and we will connect you with a driver.</p>
+      
             <i className="fas fa-couch"></i>
-            <p>Big things, Small Car?</p>
         </div>
 
 
-  <div className="grid-item">
-    <i className="fas fa-truck-loading"></i>
+  <div className="grid-item b">
+    
 
-      <p>
+      
   
-         User
-          step1: Create your new order.
-          Step2: Track your order.
-          Step3: Set back and relax. 
-        </p>
+         <h3>User</h3>
+          <p>Step 1: Create new order.</p>
+          <p>Step 2: Track your order.</p>
+          <p>Step 3: Sit back and relax.</p>
+          <i className="fas fa-peace"></i>
+    
     </div>
 
-    <div className="grid-item">
-    <i className="fas fa-peace"></i>
+  
+    <div className="grid-item c">
+    
 
-        <p>
-          Driver
-          Step1: View Open Orders.
-          Step2: Accept a Convinent Order.
-          Step3: Make Money.
-        </p>
+    <h3>Driver</h3>
+        <p>Step 1: View Open Orders.</p>
+        <p>Step 2: Accept an Order.</p>
+        <p>Step 3: Make Money.</p>
+        <i className="fas fa-truck-loading"></i>
     </div>
+    
     </div>
     </div>
     )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MapContainer from '../MapContainer'
+import MapContainer from '../Map/MapContainer'
 
 class CompletedOrder extends Component {
  
@@ -9,7 +9,7 @@ class CompletedOrder extends Component {
     const { id, locationStart, locationEnd, date ,time, description, status, img } = this.props.completedOrder;
 
 
-    if (status === 'DONE'){
+    if (status === 'COMPLETED'){
     return (
         <div className="box">
         <section className="grid__section">
@@ -19,20 +19,14 @@ class CompletedOrder extends Component {
                 <p className="box-item">Starting Location: { locationStart }</p>
                 <p className="box-item">Destination: { locationEnd }</p>
                 <p className="box-item">Date of Delivery: { date }</p>
-                <p className="box-item">Time of Delivery: { time }</p>
                 <p className="box-item">Status: { status }</p>
-                <p className="">Order Confirmation: { id }</p>
+                <p className="">Order ID: { id }</p>
                 </div>
             <div className= "grid__item">
             <h1>Item:</h1>
             <img src= {img}/>
             </div>
-          <div className="grid__item">
-            <h1>Location:</h1>
-              <div className="map" >
-                  <MapContainer />
-              </div>
-          </div>
+          
         </section>
                 
         </div> )} 

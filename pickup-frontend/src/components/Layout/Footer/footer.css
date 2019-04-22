@@ -1,6 +1,25 @@
 #footer{
     color: #F8F8FF;
     background-color: black;
-    height: 300px;
+    height: 250px;
     margin-top: 5rem;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.footer-list{
+   
+    list-style: none;
+}
+
+.footer-list a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-list a:hover{
+    text-decoration: none;
+    color: teal;
 }
