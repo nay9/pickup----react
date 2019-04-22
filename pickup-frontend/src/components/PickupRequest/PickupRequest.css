@@ -46,10 +46,20 @@
  
 
 }
-.gridItemA{
+.grid__item{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     min-width: 325px;
     max-width: 325px;
+    align-items: center;
+}
+.gridItemA{
+    align-items: flex-start;
 }
 
-
+.grid__item img{
+    width:200px;
+    height: auto;
+}
 
