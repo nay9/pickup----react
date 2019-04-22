@@ -15,7 +15,7 @@ class CompletedOrder extends Component {
         <section className="grid__section">
           <div className="grid__item gridItemA">
                 <h2 className="box-item">{ description }</h2>
-                <p className="box-item">Driver</p>
+                <p className="box-item">Driver: Alex</p>
                 <p className="box-item">Starting Location: { locationStart }</p>
                 <p className="box-item">Destination: { locationEnd }</p>
                 <p className="box-item">Date of Delivery: { date }</p>
