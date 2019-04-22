@@ -55,7 +55,7 @@ class OrderForm extends Component {
             className="form-item"
             type="text"
             name="locationStart"
-            placeholder="Where is item now?"
+            placeholder="Where is the item now?"
             value={this.state.locationStart}
             onChange={this.onChange}
           />
@@ -63,7 +63,7 @@ class OrderForm extends Component {
             className="form-item"
             type="text"
             name="locationEnd"
-            placeholder="Where are we going?"
+            placeholder="Where do you want this droped off?"
             value={this.state.locationEnd}
             onChange={this.onChange}
           />
@@ -71,7 +71,7 @@ class OrderForm extends Component {
             className="form-item"
             type="textarea"
             name="description"
-            placeholder="Details..."
+            placeholder="What is the item?"
             value={this.state.description}
             onChange={this.onChange}
           />
@@ -79,7 +79,7 @@ class OrderForm extends Component {
             className="form-item"
             type="textarea"
             name="img"
-            placeholder="Upload image"
+            placeholder="Upload an image."
             value={this.state.img}
             onChange={this.onChange}
           />
@@ -87,7 +87,7 @@ class OrderForm extends Component {
             className="form-item"
             type="text"
             name="time"
-            placeholder="When?"
+            placeholder="At what time do you want us to pick this up?"
             value={this.state.time}
             onChange={this.onChange}
           />
