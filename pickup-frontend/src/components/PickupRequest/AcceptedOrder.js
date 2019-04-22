@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Map from '../Map/Map'
+import './PickupRequest.css'
 
 export class AcceptedOrder extends Component {
  
@@ -36,9 +37,11 @@ export class AcceptedOrder extends Component {
               </div>
           </div>
         </section>
-                <button className="btn" onClick={()=>this.props.markComplete(id) }>Complete</button>
-        
-        </div> )} 
+        <div id="btnM">
+                <button id="btn" onClick={()=>this.props.markComplete(id) }>Complete</button>
+                </div>
+        </div>
+         )} 
 
     else return ("")
   }
