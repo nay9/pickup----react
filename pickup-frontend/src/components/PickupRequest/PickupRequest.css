@@ -36,12 +36,18 @@
     justify-content: space-between;
 }
 
+
+
 .map{
     height: 200px !important;
     width: 200px ;
     box-shadow: 0px 2px 8px lightgrey;
  
 
+}
+.gridItemA{
+    min-width: 325px;
+    max-width: 325px;
 }
 
 
