@@ -13,7 +13,7 @@ class OpenOrder extends Component {
     return (
     <div className="box">
         <section className="grid__section">
-          <div className="grid__item">
+          <div className="grid__item gridItemA">
             <h2 className="box-item">{ description }</h2>
             <p className="box-item">Starting Location: { locationStart }</p>
             <p className="box-item">Destination: { locationEnd }</p>
